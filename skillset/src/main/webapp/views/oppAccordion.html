@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a href class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+					<ul uib-accordion-header>
+						<li class="oppid">OP.ID:</li>
+						<li class="oppidv">{{oppdmd.oppo.oppShowId}}</li>
+						<li class="oppname">Name:</li>
+						<li class="namev">{{oppdmd.oppo.oppName}}</li>
+						<li class="acc">A/C:</li>
+						<li class="accv">{{oppdmd.oppo.drmsAccount.accountName}}</li>
+						<li class="stat">STAT:</li>
+						<li class="statv">{{oppdmd.oppo.drmsStatus.statusName}}</li>
+						<li class="pr">PR:</li>
+						<li class="prv">{{oppdmd.oppo.oppProbability}}%</li>
+						<li class="ops"><a ng-click="addeditopp('lg', oppdmd.oppo)" class="btn btn-default">Edit</a></li>
+						<li class="archor"><a ng-click="addeditdmd('lg', oppdmd.oppo, null)" class="btn btn-default">Add Demand</a></li>
+					</ul>
+				</a>
+			</h4>
+		</div>
+	</div>
+</div>

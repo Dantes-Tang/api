@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DRMS</title>
+
+<link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="js/lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+<link rel="stylesheet" href="css/animate.css"/>
+<link rel="stylesheet" type="text/css" href="css/demands.less">
+<link rel="stylesheet" type="text/css" href="css/modalContent.less">
+<link rel="stylesheet/less" type="text/css" href="css/index.less">
+<link rel="stylesheet/less" type="text/css" href="css/oppdmdreport.less">
+<link rel="stylesheet/less" type="text/css" href="css/showDemand.less">
+<link rel="stylesheet/less" type="text/css" href="css/oppAccordion.less">
+<link rel="stylesheet/less" type="text/css" href="css/cordropdown.less">
+<link rel="stylesheet/less" type="text/css" href="css/mailmodal.less">
+<link rel="stylesheet/less" type="text/css" href="css/index_2.less">
+
+<script src="js/lib/other/less.min.js"></script>
+
+</head>
+<body ng-app="indexApp" body-hidden>
+
+	<cor-leftnav>
+<!-- 		slide bar append here -->
+		
+		<cor-nvpane tag="tag1" role="a">
+			<content-nav>
+				<content-pane tag="pending">
+					<div class="bs-view">
+						<div class="c-header"></div>
+						<div class="op-view">
+							<div class="op-tb"></div>
+						</div>
+					</div>			
+				</content-pane>
+				<content-pane tag="in process">
+					<cor-title>
+						<cor-detail tag=" dtl1">
+							dtl1
+						</cor-detail>
+						<cor-detail tag="dtl2">
+							dtl2
+						</cor-detail>
+						<cor-detail tag="dtl3">
+							dtl3
+						</cor-detail>
+					</cor-title>
+				</content-pane>
+				<content-pane tag="clear">con3</content-pane>
+			</content-nav>		
+		</cor-nvpane>
+		<cor-nvpane tag="tag2" role="a">
+			<div class="">
+				silde bar
+			</div>
+		</cor-nvpane>
+		<cor-nvpane tag="tag3" role="a">
+			tag3
+		</cor-nvpane>
+	</cor-leftnav>
+
+	<script type="text/javascript" src="js/lib1/angular/angular.min.js"></script>
+	
+	<script type="text/javascript" src="js/lib1/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="js/lib1/angular-ui-router.statehelper/statehelper.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery/jquery.js"></script>
+		<script type="text/javascript" src="js/lib/moment/moment.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+	<script type="text/javascript" src="js/lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+	
+
+	
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/oppodmdService.js"></script>
+	<script type="text/javascript" src="js/oppdmdControllers.js"></script>
+	<script type="text/javascript" src="js/add-demand.js"></script>
+	<script type="text/javascript" src="js/add-demandService.js"></script>
+	<script type="text/javascript" src="js/odreport.js"></script>
+	<script type="text/javascript" src="js/filters/odfilter.js"></script>
+	<script type="text/javascript" src="js/directives/oddirective.js"></script>
+	<script type="text/javascript" src="js/directives/accordionDirective.js"></script>
+	<script type="text/javascript" src="js/directives/filterDirective.js"></script>
+	<script type="text/javascript" src="js/directives/dropdownDirective.js"></script>
+	<script type="text/javascript" src="js/directives/tabpaneDirective.js"></script>
+	<script type="text/javascript" src="js/directives/tabpaneDirective.js"></script>
+	<script type="text/javascript" src="js/directives/leftnavDirective.js"></script>
+	<script type="text/javascript" src="js/directives/connavDirective.js"></script>
+	<script type="text/javascript" src="js/directives/slideDirective.js"></script>
+	<script type="text/javascript" src="js/directives/detailDirective.js"></script>
+	
+	<script type="text/javascript" src="js/services/slideGetter.js"></script>
+	
+	<script type="text/javascript" src="js/components/oppdmdAddEdit.js"></script>
+	<script type="text/javascript" src="js/components/mailSend.js"></script>
+	<script type="text/javascript" src="js/components/skillnLang.js"></script>		
+	
+	<script type="text/javascript" src="js/lib1/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="js/lib1/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>	
+	
+	<script type="text/javascript" src="js/lib1/angular/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="js/lib1/angular/angular-sanitize/angular-sanitize.min.js"></script>
+	
+	<script type="text/javascript" src="js/showDemand.js"></script>
+	<script type="text/javascript" src="js/showDemandService.js"></script>
+	<script type="text/javascript" src="js/mobile-demand.js"></script> 
+</body>
+</html>

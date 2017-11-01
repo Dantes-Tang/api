@@ -1,0 +1,76 @@
+body header {
+  height: 80px;
+}
+body header div {
+  padding: 0px 140px;
+}
+body header div a {
+  font-size: 20px;
+}
+body header div span.headline {
+  display: inline;
+  font-size: 20px;
+  font-family: nevisbold, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  line-height: 80px;
+  height: 80px;
+  padding: 0px 400px;
+}
+body header div span.headline a {
+  font-size: 25px;
+}
+body div.container {
+  padding: 0px 140px;
+  border-color: #EAEAEA;
+  width: 100%;
+}
+body div.container #table-add {
+  border: 1px solid;
+  border-color: #EAEAEA;
+  border-radius: 7px;
+}
+body div.container #table-add thead tr {
+  height: 30px;
+  font-size: 25px;
+  background-color: #D6D6D6;
+  border-radius: 7px 7px 0 0;
+}
+body div.container #table-add thead tr td a.add-btn {
+  margin: 0px 6px 0px 700px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+body div.container #table-add tbody tr.head-color {
+  background-color: #FAFAFA;
+}
+body div.container #table-add tbody th {
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-weight: 410;
+  width: 90px;
+}
+body div.container #table-add tbody td {
+  box-shadow: 0px 2px 0px 0px  #E3E3E3;
+}
+body div.container #table-add tbody td.edit {
+  text-align: center;
+}
+body footer {
+  padding-right: 0px;
+  height: 80px;
+}
+.size {
+  height: 26px;
+}
+span.addon-size {
+  padding: 0px 0px;
+}
+.select-padding {
+  padding: 0px;
+}
+.hidden {
+  visibilty: hidden;
+}
+

@@ -1,0 +1,1107 @@
+[
+    {
+        "id": 1,
+        "name": "Programming - Java/J2EE",
+        "description": null,
+        "children": [
+            {
+                "id": 100,
+                "name": "Core Java",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 101,
+                "name": "EJB",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 102,
+                "name": "Servlets",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 103,
+                "name": "JDBC",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 104,
+                "name": "Swing/AWT",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 105,
+                "name": "XML",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 106,
+                "name": "Struts",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 107,
+                "name": "Spring",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 108,
+                "name": "Hibernate",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 109,
+                "name": "JMS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 2,
+        "name": "Programming - C/C++",
+        "description": null,
+        "children": [
+            {
+                "id": 110,
+                "name": "C/C++ (Unix)",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 111,
+                "name": "Visual C++.NET ",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 112,
+                "name": "Visual C#.NET",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 113,
+                "name": "C/C++ (Embeded)",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 3,
+        "name": "Programming - Mainframe",
+        "description": null,
+        "children": [
+            {
+                "id": 114,
+                "name": "COBOL",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 115,
+                "name": "AS400 RPG",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 116,
+                "name": "JCL",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 117,
+                "name": "CICS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 4,
+        "name": "Programming - Web",
+        "description": null,
+        "children": [
+            {
+                "id": 118,
+                "name": "HTML",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 119,
+                "name": "JSP",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 120,
+                "name": "Java Script",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 121,
+                "name": "VB Script",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 122,
+                "name": "Web Service",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 123,
+                "name": "Perl",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 124,
+                "name": "PHP",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 125,
+                "name": "Ruby",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 126,
+                "name": "jQuery",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 127,
+                "name": "iBatis",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 128,
+                "name": "GWT",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 129,
+                "name": "JSF",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 130,
+                "name": "ExtJS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 6,
+        "name": "Programming - Mobile Dev",
+        "description": null,
+        "children": [
+            {
+                "id": 131,
+                "name": "HTML5",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 132,
+                "name": "Android",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 133,
+                "name": "IOS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 134,
+                "name": "jQuery Mobile",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 135,
+                "name": "KONY",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 136,
+                "name": "Worklight",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 137,
+                "name": "Sencha",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 138,
+                "name": "Phone Gap",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 7,
+        "name": "Database",
+        "description": null,
+        "children": [
+            {
+                "id": 139,
+                "name": "Oracle",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 140,
+                "name": "Oracle DBA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 141,
+                "name": "Oracle PL/SQL",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 142,
+                "name": "Oracle Exadata",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 143,
+                "name": "Sybase",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 144,
+                "name": "Sybase DBA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 145,
+                "name": "Sybase T-SQL",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 146,
+                "name": "MS SQL Server",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 147,
+                "name": "MS SQL Server DBA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 148,
+                "name": "Mysql",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 149,
+                "name": "Mysql DBA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 150,
+                "name": "Informix",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 151,
+                "name": "PostgreSQL",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 152,
+                "name": "DB2",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 8,
+        "name": "Big Data/NoSQL",
+        "description": null,
+        "children": [
+            {
+                "id": 153,
+                "name": "Membase",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 154,
+                "name": "MongoDB",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 155,
+                "name": "Hypertable",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 156,
+                "name": "Cassandra",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 157,
+                "name": "CouchDB",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 158,
+                "name": "Redis",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 159,
+                "name": "Hadoop",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 160,
+                "name": "Hbase",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 9,
+        "name": "Warehouse/ETL",
+        "description": null,
+        "children": [
+            {
+                "id": 161,
+                "name": "Netezza",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 162,
+                "name": "Teradata",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 163,
+                "name": "Hyperion",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 164,
+                "name": "Informatica",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 10,
+        "name": "OS",
+        "description": null,
+        "children": [
+            {
+                "id": 165,
+                "name": "Solaris",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 166,
+                "name": "HPUX",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 167,
+                "name": "AIX",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 168,
+                "name": "Linux",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 169,
+                "name": "Shell Script",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 170,
+                "name": "Windows",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 171,
+                "name": "MacOS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 11,
+        "name": "Testing",
+        "description": null,
+        "children": [
+            {
+                "id": 172,
+                "name": "Web Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 173,
+                "name": "Windows Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 174,
+                "name": "Mobile App Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 175,
+                "name": "Mainframe Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 176,
+                "name": "Unix/Linux Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 177,
+                "name": "White Box Testing",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 178,
+                "name": "QTP",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 179,
+                "name": "LoadRunner",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 180,
+                "name": "QC",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 181,
+                "name": "JMeter",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 12,
+        "name": "Configuration Management",
+        "description": null,
+        "children": [
+            {
+                "id": 182,
+                "name": "CVS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 183,
+                "name": "VSS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 184,
+                "name": "SVN",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 185,
+                "name": "Clearcase",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 13,
+        "name": "Web/Application Servers",
+        "description": null,
+        "children": [
+            {
+                "id": 186,
+                "name": "IIS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 187,
+                "name": "Apache",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 188,
+                "name": "Tomcat",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 189,
+                "name": "WebSphere",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 190,
+                "name": "WebLogic",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 191,
+                "name": "Jboss",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 192,
+                "name": "SharePoint Server",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 14,
+        "name": "CRM/ERP/BPM",
+        "description": null,
+        "children": [
+            {
+                "id": 193,
+                "name": "Siebel",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 194,
+                "name": "Salesforce",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 195,
+                "name": "Microsoft Dynamics",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 196,
+                "name": "SAP",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 197,
+                "name": "PeopleSoft",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 198,
+                "name": "IBM Business Process Manager",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 199,
+                "name": "jBPM",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 15,
+        "name": "BI",
+        "description": null,
+        "children": [
+            {
+                "id": 200,
+                "name": "Cognos",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 201,
+                "name": "Business Objects",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 202,
+                "name": "SAS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 203,
+                "name": "Microstrategy",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 204,
+                "name": "Actuate",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 205,
+                "name": "Jasper",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 206,
+                "name": "Brio",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 207,
+                "name": "SPSS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 208,
+                "name": "Pentaho",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 16,
+        "name": "Middleware/EAI",
+        "description": null,
+        "children": [
+            {
+                "id": 209,
+                "name": "IBM WebSphere MQ",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 210,
+                "name": "IBM WebSphere MB",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 211,
+                "name": "IBM WebSphere ESB",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 212,
+                "name": "TIBCO EMS",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 213,
+                "name": "TIBCO BusinessWorks",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 214,
+                "name": "Apache Camel",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 215,
+                "name": "Apache ActiveMQ",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 216,
+                "name": "WebMethods",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 217,
+                "name": "CORBA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 218,
+                "name": "Oracle AIA",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 17,
+        "name": "Application Management",
+        "description": null,
+        "children": [
+            {
+                "id": 219,
+                "name": "Tivoli",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 220,
+                "name": "Nagios",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 18,
+        "name": "Workload Automation/Batch",
+        "description": null,
+        "children": [
+            {
+                "id": 221,
+                "name": "Control-M",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 222,
+                "name": "Autosys",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 19,
+        "name": "Capital Market/Core Banking",
+        "description": null,
+        "children": [
+            {
+                "id": 223,
+                "name": "SunGard",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 224,
+                "name": "Murex",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 225,
+                "name": "Mysis",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 226,
+                "name": "IBM Algo",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 228,
+                "name": "Broadridge",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 229,
+                "name": "Princeton",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 230,
+                "name": "SmartStream",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 20,
+        "name": "Insurance",
+        "description": null,
+        "children": [
+            {
+                "id": 231,
+                "name": "Guidewire",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 233,
+                "name": "Synergy",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    },
+    {
+        "id": 21,
+        "name": "Software Engineering",
+        "description": null,
+        "children": [
+            {
+                "id": 234,
+                "name": "SDLC",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 235,
+                "name": "Agile",
+                "description": null,
+                "children": [],
+                "parent": 0
+            },
+            {
+                "id": 236,
+                "name": "Project Management",
+                "description": null,
+                "children": [],
+                "parent": 0
+            }
+        ],
+        "parent": 0
+    }
+]

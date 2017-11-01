@@ -1,0 +1,105 @@
+/**
+  *  @author Cornelius Huang
+  *  Opportunity-demand Accordion style
+  */
+.heading li {
+  float: left;
+}
+.achor-right {
+  float: right;
+}
+.pe-pdn-none {
+  padding: 0px;
+}
+.pe-margin {
+  margin-bottom: 3px;
+}
+.collapse {
+  height: 0px;
+}
+.oppid {
+  width: 6%;
+}
+.oppidv {
+  width: 13%;
+}
+.oppname {
+  width: 6%;
+}
+.namev {
+  width: 19%;
+}
+.acc {
+  width: 6%;
+}
+.accv {
+  width: 10%;
+}
+.stat {
+  width: 7%;
+}
+.statv {
+  width: 8%;
+}
+.pr {
+  width: 4%;
+}
+.prv {
+  width: 5%;
+}
+.ops {
+  width: 7%;
+}
+.archor {
+  float: right !important;
+  width: 3%;
+}
+.idx {
+  width: 30px;
+}
+.dmd-id {
+  width: 8%;
+}
+.res-tp {
+  width: 6%;
+}
+.dmd-cap {
+  width: 6%;
+}
+.prj-nm {
+  width: 6%;
+}
+.prj-pos {
+  width: 6%;
+}
+.des {
+  width: 4%;
+}
+.site {
+  width: 3%;
+}
+.atr-des {
+  width: 6%;
+}
+.all-tp {
+  width: 6%;
+}
+.all-rt {
+  width: 6%;
+}
+.ass-cap {
+  width: 6%;
+}
+.res-nm {
+  width: 6%;
+}
+.srt-dt {
+  width: 7%;
+}
+.ed-dt {
+  width: 7%;
+}
+.ops {
+  width: 49px;
+}
+

@@ -1,0 +1,26 @@
+<div id="slidelst" class="slide" slide-list>
+	<div class="sld-inpt-box">
+		<div class="header">
+			<span>Opportunity Edit</span>
+		</div>
+		<div class="sld-main">
+			<div class="hed-tit-box">
+				<span>Name</span>
+				<validate-component sl-model="oppo.oppName" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>PROBABILITY</span>
+				<validate-component sl-model="oppo.oppProbability" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>status</span>
+				<status-component class="slt-f-comp" sl-model="oppo.drmsStatus"></status-component>
+			</div>
+			<div class="hed-tit-box">
+				<button ng-click="editsubmit()" class="sld-btn">Save</button>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>

@@ -1,0 +1,36 @@
+<div ng-controller="reportController" class="reportOutside">
+	<h4>REPORT</h4>
+	<input class="searchButton" ng-model="reportModel">
+	<div class="reportInside" class="op-tb-man op-tb-man-fix">
+		<table border='1'cellspacing="0" cellpadding="0"  class="table op-tb-fix">
+			<thead>
+				<tr>
+					<th>Capability</th>
+					<th>CG ID</th>
+					<th>Name</th>
+					<th>Global Join Date</th>
+					<th>Designation</th>
+					<th>Bench Join Date</th>
+					<th>AllocRatio Ratio(%)</th>
+					<th>Primary Skill</th>
+					<th>Remarks</th>
+					<th>Aging</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="report in reports | filter:reportModel">
+					<td>{{report.capability}}</td>
+					<td>{{report.kinId}}</td>
+					<td>{{report.name}}</td>
+					<td>{{report.globalJoinDate}}</td>
+					<td>{{report.designation}}</td>
+					<td>{{report.benchJoinDate}}</td>
+					<td>{{report.dmdAllocRatio}}</td>
+					<td>{{report.primarySkill}}</td>
+					<td>{{report.dmdRemarks}}</td>
+					<td>{{report.aging}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

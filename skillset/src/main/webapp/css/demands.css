@@ -1,0 +1,59 @@
+.border-none {
+  border-bottom: 0px;
+}
+.account {
+  margin-left: 1000px;
+}
+.panel-bottom {
+  margin-bottom: 0px;
+}
+div.head div.panel-padding {
+  padding: 8px;
+}
+div.head div.panel-padding ul {
+  height: 41px;
+  line-height: 41px;
+  text-align: right;
+}
+div.head div.panel-padding ul li span.headline {
+  display: inline;
+  font-size: 25px;
+  font-family: nevisbold, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin-left: 40px;
+}
+div.content {
+  margin-top: 0px;
+}
+thead tr {
+  height: 30px;
+  font-size: 25px;
+  background-color: #D6D6D6;
+  border-radius: 7px 7px 0 0;
+  font-family: nevisbold, sans-serif;
+}
+tbody tr th {
+  text-align: center;
+}
+tbody tr td.td-style {
+  vertical-align: middle;
+  text-align: center;
+  padding: 4px;
+  height: 30px;
+}
+tbody tr td.td-style span {
+  height: 30px;
+}
+tbody tr td.td-style div input.size {
+  padding: 1px 3px;
+}
+.calender {
+  height: 20px;
+  vertical-align: middle;
+}
+.calender .addon-size {
+  margin-top: 8px;
+}
+

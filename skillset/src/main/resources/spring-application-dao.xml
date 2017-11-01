@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="baseDao" class="org.mybatis.spring.mapper.MapperFactoryBean"
+		abstract="true">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+	<bean id="skillMatrixDao" parent="baseDao">
+		<property name="mapperInterface" value="com.capgemini.drms.dao.SkillMatrixDao"></property>
+	</bean>
+	
+	<bean id="flexibilityDao" parent="baseDao">
+		<property name="mapperInterface" value="com.capgemini.drms.dao.FlexibilityDao"></property>
+	</bean>
+	
+	
+   <bean id="ldapUserDao" class="com.capgemini.drms.dao.impl.LdapUserDaoImpl">
+      <property name="ldapTemplate" ref="ldapTemplate" />
+   </bean>
+	
+   <bean id="AppDictionaryDao" parent="baseDao">
+		<property name="mapperInterface" value="com.capgemini.drms.dao.AppDictionaryDao"></property>
+	</bean>
+	
+   <bean id="AppRoleDao" parent="baseDao">
+		<property name="mapperInterface" value="com.capgemini.drms.dao.AppRoleDao"></property>
+	</bean>
+	
+	<bean id="DrmsDemandDao" parent="baseDao">
+		<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsDemandDao"></property>
+	</bean>
+	<bean id="DrmsOppDao" parent="baseDao">
+	  <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsOppDao"></property>
+    </bean>
+    <bean id="DrmsAllocationTypeDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsAllocationTypeDao"></property>
+    </bean>	
+    <bean id="DrmsCapabilityDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsCapabilityDao"></property>
+    </bean>	
+    <bean id="DrmsDesigationDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsDesigationDao"></property>
+    </bean>	
+    <bean id="DrmsResourceDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsResourceDao"></property>
+    </bean>	
+    <bean id="DrmsSiteDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsSiteDao"></property>
+    </bean>	
+      <bean id="DrmsAccountDao" parent="baseDao">
+    	<property name="mapperInterface" value="com.capgemini.drms.dao.DrmsAccountDao"></property>
+      </bean>	
+    <bean id="DrmsStatusDao" parent="baseDao">
+      <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsStatusDao"></property>
+    </bean>
+  
+   <bean id="UserPermission" parent="baseDao">
+   <property name="mapperInterface" value="com.capgemini.drms.dao.UserPermissionDao"></property>
+   </bean>
+   <bean id="DrmsUserDao"   parent="baseDao">
+    <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsUserDao"> </property>
+   </bean>
+   <bean id="DbUserDao"   parent="baseDao">
+    <property name="mapperInterface" value="com.capgemini.drms.dao.DbUserDao"> </property>
+   </bean>
+   <bean id="DrmsAllUrlAndRoleDao"   parent="baseDao">
+    <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsAllUrlAndRoleDao"> </property>
+   </bean>
+   <bean id="DrmsSkillFlexibilityDao" parent="baseDao">
+   <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsSkillFlexibilityDao"></property>
+   </bean>
+    <bean id="DrmsCategoryDao" parent="baseDao">
+   <property name="mapperInterface" value="com.capgemini.drms.dao.DrmsCategoryDao"></property>
+   </bean>
+</beans>

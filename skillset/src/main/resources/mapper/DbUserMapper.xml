@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DbUserDao">
+	<select id="loadCapgUserByName"  resultMap="capgUserMap">
+	SELECT DISTINCT
+        employee_id, App_User.fullName, Name, Role_Name
+    FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID;
+	</select>
+	
+	<delete id="deleteCapgUser" parameterType="String">
+	DELETE AU.*, AUR.* FROM App_User AU
+        inner join
+    App_User_Role AUR 
+           ON AU.id = AUR.User_ID 
+    WHERE 
+        fullname = #{fullName}
+	</delete>
+	
+	<select id="getCapgUser" resultMap="capgUserMap">
+	SELECT DISTINCT
+        employee_id, App_User.fullName, Role_Name
+    FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID
+	WHERE
+	    fullname = #{fullName}
+	</select>
+	
+	<update id="updateCapgUsers" parameterType="String">
+     update App_User AU, App_User_Role AUR
+	<set>
+		<if test="roleName != null and roleName != ''">
+			Role_ID = #{roleName}
+		</if>
+	 where AU.id = AUR.User_ID and fullname = #{fullName}
+	</set>
+    </update>
+	
+	<select id="findcCapgUsers" resultMap="capgUserMap">
+	SELECT DISTINCT
+        employee_id, App_User.fullName, Role_Name
+    FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID
+	WHERE
+	    Name LIKE CONCAT(CONCAT('%',#{userName}),'%');
+	</select>
+	
+    <resultMap id="capgUserMap"  type="CapgUser">
+	     <result property="id"   column="Role_ID"/>
+	     <result property="employeeId"   column="employee_id"/>
+	     <result property="fullName"   column="fullname"/>
+	     <result property="roleName"   column="Role_Name"/>
+    </resultMap>
+
+    <select id="findCapgUserRole" parameterType="java.lang.String" resultMap="CapgUserRoleMap">
+    select DISTINCT 
+        employee_id,App_User.fullname,Role_Name
+    FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID
+    WHERE
+	    App_User.fullname LIKE CONCAT('%',#{fullName},'%');
+    </select>
+    <resultMap type="CapgUserRole" id="CapgUserRoleMap">
+         <result property="employeeId" column="employee_id"/>
+         <result property="fullName" column="fullname"/>
+         <collection property="roleName" ofType="String" javaType="java.util.ArrayList">
+            <result property="roleName" column="Role_Name"/>
+         </collection>
+     </resultMap>
+     <select id="findCapgUserRoles" parameterType="CapgUserRole" resultMap="CapgUserRoleMap">
+     select DISTINCT 
+         employee_id,App_User.fullname,Role_Name
+     FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID;
+     </select>
+     <select id="findCapgUserRoleID" parameterType="String" resultMap="CapgUserRoleIDMap">
+select distinct User_ID,Role_ID 
+FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID
+        WHERE
+	    App_User.fullname =#{fullName};
+</select>
+<resultMap type="CapgUserRole" id="CapgUserRoleIDMap">
+<result property="userId" column="User_ID"/>
+<collection property="roleId" ofType="String">
+<result property="roleId" column="Role_ID"/>
+</collection>
+</resultMap>
+
+<select id="findRoleIDByRoleName"  resultType="String" parameterType="String">
+select distinct ID
+from App_Role 
+where App_Role.Role_Name in 
+<foreach item="roleName" collection="list" separator="," open="(" close=")" index="">
+#{roleName}
+</foreach>
+</select>
+
+<insert id="insertCapgUserRole" parameterType="CapgUserRole">
+insert into App_User_Role(User_ID,Role_ID) 
+values(#{userId},#{roleNo})
+</insert>
+
+<select id="findCapgUserRoleName" resultMap="CapgUserRoleNameMap" parameterType="String">
+select distinct User_ID,App_User.fullname,App_Role.Role_Name
+FROM
+        App_Role
+            JOIN
+        App_User_Role ON App_User_Role.Role_ID = App_Role.ID
+            JOIN
+        App_User ON App_User_Role.User_ID = App_User.ID
+        WHERE
+	    App_User.fullname =#{fullName};
+</select>
+<resultMap type="CapgUserRole" id="CapgUserRoleNameMap">
+<result property="userId" column="User_ID"/>
+<result property="fullName" column="fullname"/>
+         <collection property="roleName" ofType="String" javaType="java.util.ArrayList">
+            <result property="roleName" column="Role_Name"/>
+         </collection>
+</resultMap>
+<delete id="deleteCapgUserRole" parameterType="String">
+delete from App_User_Role 
+where   User_ID = #{userId} and Role_ID=#{roleNo};
+</delete>
+
+</mapper>

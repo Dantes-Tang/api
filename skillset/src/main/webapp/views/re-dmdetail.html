@@ -1,0 +1,49 @@
+<div class="de-box">
+	<div class="de-header">
+		<div class="back">Back</div>
+	</div>
+	<div class="de-man-box">
+		<div class="de-man">
+			<div class="lft-header">
+				
+			</div>
+			<div class="rt-con-box">
+				<div class="list">
+					<button ng-click="alterTest()">emailtest</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	
+	jQuery(function($) {
+		//jquery here
+	});
+	
+	(function() {
+		var httpRequest;
+		
+		var alertContents = function() {
+			if(httpRequest.readyState === XMLHttpRequest.DONE) {
+				console.log('The status is: '+httpRequest.status);
+				if(httpRequest.status === 200) {
+					console.log(httpRequest.responseText);
+				}
+			}
+		}
+		
+		var makeRequest = function(url) {
+			httpRequest = new XMLHttpRequest();
+			
+			if(!httpRequest) {
+				console.log('ajax - Give up');
+			}
+			httpRequest.onreadystatechange = alertContents;
+			httpRequest.open('GET', url);
+			httpRequest.send();
+		}
+		
+		makeRequest('/DRMS/api/user/getLoginUserName');
+	})()
+</script>

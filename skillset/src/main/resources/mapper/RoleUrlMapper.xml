@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsAllUrlAndRoleDao">
+
+	<select id="findAllUrl" resultType="String">
+		select Url
+		from App_Url;
+	</select>
+
+	<select id="findAllRoleByUrl" parameterType="java.lang.String"
+		resultType="String">
+		select Role_Name
+		from App_Role join App_Role_Url
+		on App_Role.ID=App_Role_Url.App_Role_Id
+		join App_Url
+		on App_Url.ID=App_Role_Url.App_Url_Id
+		where url= #{url} ;
+	</select>
+
+</mapper>

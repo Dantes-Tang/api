@@ -1,0 +1,119 @@
+[
+	{
+		"id": 1,
+		"name": "China",
+		"description": null,
+		"children": [
+			{
+				"id": 5,
+				"name": "TianJin",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 6,
+				"name": "Shanghai",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 7,
+				"name": "Guangzhou",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 8,
+				"name": "Hongkong",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}
+		],
+		"parent": 0
+	}, {
+		"id": 2,
+		"name": "APAC",
+		"description": null,
+		"children": [
+			{
+				"id": 9,
+				"name": "Philippines",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 10,
+				"name": "India",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 11,
+				"name": "Malaysia",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 12,
+				"name": "Singapore",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 13,
+				"name": "Other",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 18,
+				"name": "Japan",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}
+		],
+		"parent": 0
+	}, {
+		"id": 3,
+		"name": "Europe",
+		"description": null,
+		"children": [
+			{
+				"id": 14,
+				"name": "Europe",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}
+		],
+		"parent": 0
+	}, {
+		"id": 4,
+		"name": "NorthAmerica",
+		"description": null,
+		"children": [
+			{
+				"id": 15,
+				"name": "USA",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 16,
+				"name": "Canada",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}, {
+				"id": 17,
+				"name": "Other",
+				"description": null,
+				"children": [],
+				"parent": 0
+			}
+		],
+		"parent": 0
+	}
+]

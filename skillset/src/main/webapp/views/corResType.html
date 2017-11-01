@@ -1,0 +1,6 @@
+<input ng-model="$ctrl.slModel" ng-blur="$ctrl.indicateValidate()" ng-change="$ctrl.keyInput()" ng-class="{invalid: $ctrl.isInvalid}" type="text">
+<div class="auto-drp">
+	<ul ng-class="{hidden: $ctrl.isHidden}">
+ 		<li ng-repeat="resType in $ctrl.filteredRes track by $index" ng-click="$ctrl.clickFill(resType.name)">{{resType.name}}</li>
+	</ul>
+</div>

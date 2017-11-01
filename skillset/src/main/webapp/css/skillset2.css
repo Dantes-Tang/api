@@ -1,0 +1,146 @@
+
+.mainframe{
+	margin:10px;
+	padding:0px;
+	
+}
+.mainframe skillTable{
+	border:1px dotted #0886c5;
+	width:800px;
+
+	margin:0px;
+	padding:0px;
+}
+.mainframe .thead{
+	border:1px solid #0767c8;
+	height:50px;
+	background-color:#a8b8c2;
+	width:50%;
+
+}
+.mainfrma tr{
+	height: 38px;
+	background-color: #a8b8c2;
+	width:50%;
+}
+.mainframe th{
+	border:1px solid #0767c8;
+	width:50%;
+}
+.mainframe .thskill{
+	width:150px;	
+/* 	background:url(../images/skill.PNG) no-repeat fixed left top;	 */
+}
+.mainframe font{
+	font-size: 40px;
+	font-style:italic;
+	font-weight:bold;
+	font-stretch:condensed;
+}
+.mainframe .foot{
+	
+}
+.mainframe .foot input  {
+	margin:20%;
+	width: 66px;
+	height: 32px;
+	line-height: 30px;
+	margin-top: 10px;
+	margin-left:10px;
+	border: 1px solid #045bb2;
+	border-radius: 4px;
+	background: #01c5fe;
+	background: -webkit-linear-gradient(top, #0e7bef, #0d73da);
+	background: linear-gradient(to bottom, #0e7bef, #0d73da);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05), inset 0 1px 1px
+		rgba(255, 255, 255, .15);
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+	outline: 0;
+	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	
+	}
+	
+	
+	
+.mainframe .save{
+	width :50px;
+}
+	
+.mainframe .tbd td{
+	border-left:1px solid #0767c8;
+	border-bottom:1px solid #0767c8;
+	border-right:none;
+	height:50px;
+	background-color:#ffffff;
+	width:50%;
+}
+
+.mainframe .tbd input{
+	text-align:center;
+	height:30px;
+	border:none;
+	weight:10px;
+	
+}
+.mainframe .skillBackground{
+	background-color:#EAEEF1;
+}
+.mainframe input:hover{
+	border-color:#045bb2;
+}
+.checkboxThree {
+	width: 120px;
+	height: 40px;
+	background: #333;
+	margin: 20px 60px;
+ 
+	border-radius: 50px;
+	position: relative;
+}
+.checkboxThree:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 13px;
+	height: 2px;
+	color: #26ca28;
+	font-size: 16px;
+}
+.checkboxThree:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 84px;
+	height: 2px;
+	color: #ddd;
+	font-size: 16px;
+}
+.checkboxThree label {
+	display: block;
+	width: 52px;
+	height: 22px;
+	border-radius: 50px;
+ 
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}
+.checkboxThree input[type=checkbox]:checked + label {
+	left: 60px;
+	background: #26ca28;
+}
+
+	

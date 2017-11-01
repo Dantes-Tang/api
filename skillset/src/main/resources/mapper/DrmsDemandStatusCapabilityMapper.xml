@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsDemandStatusCapabilityDao">
+
+<select id="findDrmsDemandStatusCapabilities" parameterType="DrmsDemandStatusCapability" resultMap="DemandStatusCapabilityMap">
+select  distinct dmd_id,account_name, cap_name,dmd_proj_name,site_name,
+        dmd_res_type,dmd_start_date,dmd_end_date,
+        DRMS_Resource.name ,dmdStatus_name,DRMS_Desigation.dsg_name,
+        dmd_show_id,opp_probability,opp_name
+from 
+DRMS_Demand join DRMS_Opportunity 
+on DRMS_Demand.dmd_opp_id=DRMS_Opportunity.opp_id
+join DRMS_Account
+on DRMS_Account.account_id=DRMS_Opportunity.opp_account_id
+join DRMS_DemandStatus
+on DRMS_DemandStatus.dmdStatus_id=DRMS_Demand.dmd_status_id
+join DRMS_Site
+on DRMS_Site.site_id=DRMS_Demand.dmd_site_id
+join DRMS_Resource
+on DRMS_Resource.resource_id=DRMS_Demand.dmd_res_id
+join DRMS_Capability
+on DRMS_Capability.cap_id=DRMS_Demand.dmd_cap_id
+join DRMS_Desigation
+on DRMS_Desigation.dsg_id=DRMS_Demand.dmd_dsg_id
+<where>
+<if test="dmdID!=null and dmdID!=''">
+and 
+dmd_id=#{dmdID}
+</if>
+<if test="status!=null and status!=''">
+and
+ dmdStatus_name  LIKE CONCAT('%',#{status},'%')
+</if>
+<if test="capability!=null and capability!=''">
+  and
+  cap_name LIKE CONCAT('%',#{capability},'%')
+</if>
+<if test="accountName!=null and accountName!=''">
+and 
+account_name LIKE CONCAT('%',#{accountName},'%')
+</if>
+</where>    
+order by dmd_id;
+</select>
+<resultMap id="DemandStatusCapabilityMap" type="DrmsDemandStatusCapability">
+        <result property="dmdID" column="dmd_id" />
+        <result property="accountName" column="account_name" />
+        <result property="capability" column="cap_name" />
+		<result property="project" column="dmd_proj_name" />
+		<result property="site" column="site_name" />
+		<result property="resourceType" column="dmd_res_type" />
+		<result property="startDate" column="dmd_start_date" />
+		<result property="endDate" column="dmd_end_date" />
+		<result property="resourceName" column="name" />
+		<result property="status" column="dmdStatus_name" />
+		<result property="desigation" column="dsg_name" />
+		<result property="dmdShowID" column="dmd_show_id"/>
+		<result property="oppProbability" column="opp_probability"/>
+		<result property="oppName" column="opp_name"/>
+	</resultMap>
+</mapper>

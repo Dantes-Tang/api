@@ -1,0 +1,59 @@
+<div ng-controller="SourceController">
+	<div class="container">	
+
+		<div class="panel panel-default">
+  			<div class="panel-body">
+		<div class="panel panel-default">
+  			<div class="panel-heading">Source Management</div>
+				<table class="table table-hover">
+  					<thead>
+    					<tr class="aline">
+      						<th>No.</th>
+      						<th>Source</th>
+      						<th>Url</th>
+      						<th>Operations</th>
+    					</tr>
+  					</thead>
+
+  					<tbody>
+    					<tr class="warning" ng-repeat="newSource in newSources track by $index">
+      						<th>{{$index}}</th>
+      						<td><input type="text" ng-model="newSources[$index].name"></td>
+      						<td><input type="text" style="width:80%" ng-model="newSources[$index].url"></td>
+      						<td>&nbsp<span class="glyphicon glyphicon-ok">&nbsp&nbsp<span class="glyphicon glyphicon-remove" ng-click="deleteSource($index)"></span></td>
+    					</tr>
+     					<tr class="aline">
+      						<th>Search</th>
+      						<th><input type="text" ng-model="searchCond"></th>
+      						<th></th>
+      						<th></th>
+    					</tr>
+    					<tr class="info" ng-repeat="source in sources | filter: searchCond track by $index">
+      						<th>{{$index}}</th>
+      						<td><span ng-if="!source.$edit">{{source.name}}</span><input type="text" ng-if="source.$edit" ng-model="source.name"></td>
+      						<td><span ng-if="!source.$edit">{{source.url}}</span><input type="text" style="width:80%" ng-if="source.$edit" ng-model="source.url"></td>
+      						<td>&nbsp<span class="glyphicon glyphicon-pencil" ng-click="source.$edit=true" ng-if="!source.$edit"></span>&nbsp<span class="glyphicon glyphicon-ok" ng-click="confirmEdit(source)" ng-if="source.$edit"></span>&nbsp&nbsp<span class="glyphicon glyphicon-remove"></span></td>
+    					</tr>    			
+  					</tbody>
+  					<tfoot>
+    					<tr class="danger">
+      						<th>4</th>
+      						<td>$180</td>
+      						<td>$100</td>
+      						<td>$100</td>
+    					</tr>
+  					</tfoot>
+				</table>
+				<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="addSource()">Add</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="confirmSource()">Confirm</button>
+				NewSources:
+				<pre>{{newSources | json}}</pre>
+				EditSources:
+				<pre>{{submitSources | json}}</pre>
+		</div>   			
+  			</div>
+</div>
+		
+	</div>
+
+</div>

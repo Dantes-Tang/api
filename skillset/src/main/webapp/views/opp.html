@@ -1,0 +1,63 @@
+<ul class="list-group height-size">
+  	<li ng-repeat="oppo in $ctrl.oppos track by $index" class="list-group-item {{isNotNull($index) ? '' : 'list-group-item-warning'}}">
+  		<blockquote class="quote">
+  			<h4>
+  				<span>
+  					{{oppo.oppShowId}}
+  				</span>
+  				<a ng-href="#/opps/{{oppo.oppId+'/'+$ctrl.isXs()}}" class="btn btn-default">Demand <span class="glyphicon glyphicon-hand-right"></span></a> 
+    	
+  			</h4>
+		</blockquote>
+    	<table class="table">
+    		<tr>
+    			<th>Opportunity Name:</th>
+    			<td>
+    				<span>
+    					{{oppo.oppName}}
+    				</span>
+    				
+    			</td>
+    			<th>Account:</th>
+    			<td>
+    				<span>
+    					{{oppo.drmsAccount.accountName}}
+    				</span>
+    				
+    			</td>
+    		</tr>
+    		<tr>
+    			<th>Probability:</th>
+    			<td>
+    				<span>
+    					{{oppo.oppProbability}}%
+    				</span>
+    				
+    			</td>
+    			<th>Status:</th>
+    			<td>
+    				<span>
+    					{{oppo.drmsStatus.statusName}}
+    				</span> 				
+    				
+    			</td>
+    		</tr> 
+    	</table>
+    	<hr>
+    	<p class="text-right">
+ 			
+    		<!-- <a ng-switch-when="has" ng-href="#/opps/{{$ctrl.isXs()}}"  class="btn btn-default" role="button">Forward Big-Small</a>  -->
+    		<a ng-click="$ctrl.openOppEdit($index)" class="btn btn-default" role="button">Opportunity edit</a>
+			<a ng-click="$ctrl.openOppAdd($index)" class="btn btn-default" role="button">Opportunity add</a>
+    		
+			
+    	</p>
+	</li> 					
+</ul>
+    	<p class="text-right">
+    		
+    		<a ng-click="submitall()" class="btn btn-default" role="button">Submit</a>
+    	</p>
+    	<pre>
+			{{$ctrl.oppos | json}}    	
+    	</pre>

@@ -1,0 +1,11 @@
+<div>
+	<ul class="nav nav-tabs fst-tab">
+		<li ng-repeat="pane in panes" ng-class="{active: pane.selected}">
+			<a href="" ng-click="selected(pane)">{{pane.title}}</a>
+		</li>
+	</ul>
+	
+	<div class="panel panel-default pnl-sdo-none">
+		<div ng-transclude class="panel-body"></div>
+	</div>
+</div>

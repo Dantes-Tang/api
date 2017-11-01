@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsStatusDao">
+
+	<select id="searchStatusAll"  resultMap="DrmsStatusMap">
+		  select
+		   * 
+		  from  DRMS_Status       
+	 </select>
+	 
+	 <insert id="insertDrmsStatus" parameterType="DrmsStatus" useGeneratedKeys="true" keyProperty="statusId">
+		insert into DRMS_Status
+		(status_id,status_name)
+		values
+		(#{statusId},#{statusName})
+    </insert>
+	
+    <update id="updateDrmsStatus" parameterType="DrmsStatus">
+		update DRMS_Status
+		<set>
+			<if test="statusName != null and statusName != '' ">
+				status_name = #{statusName}
+			</if>
+		</set>
+		where status_id = #{statusId}
+    </update>
+
+	<resultMap id="DrmsStatusMap" type="DrmsStatus">
+		<result property="statusId" column="status_id" />
+		<result property="statusName" column="status_name" />
+	</resultMap>
+</mapper>

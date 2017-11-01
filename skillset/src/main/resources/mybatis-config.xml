@@ -1,0 +1,60 @@
+ <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.capgemini.drms.model.SkillMatrix" alias="SkillMatrix"/>
+		<typeAlias type="com.capgemini.drms.model.Category" alias="Category"/>
+		<typeAlias type="com.capgemini.drms.model.Flexibility" alias="Flexibility"/>
+		<typeAlias type="com.capgemini.drms.model.Country" alias="Country"/>
+		<typeAlias type="com.capgemini.drms.model.CapgUser" alias="CapgUser"/>
+		<typeAlias type="com.capgemini.drms.model.SearchModel" alias="SearchModel"/>
+		<typeAlias type="com.capgemini.drms.model.AppDictionary" alias="AppDictionary"/>
+		<typeAlias type="com.capgemini.drms.model.AppDictionarySearchModel" alias="AppDictionarySearchModel"/>
+		<typeAlias type="com.capgemini.drms.model.AppRole" alias="AppRole"/>
+		<typeAlias type="com.capgemini.drms.model.AppUser" alias="AppUser"/>
+		<typeAlias type="com.capgemini.drms.model.DrmsDemand" alias="DrmsDemand"/>		
+		<typeAlias type="com.capgemini.drms.model.DrmsAllocationType" alias="DrmsAllocationType"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsCapability" alias="DrmsCapability"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsDesigation" alias="DrmsDesigation"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsOpp" alias="DrmsOpp"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsResource" alias="DrmsResource"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsSite" alias="DrmsSite"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsAccount" alias="DrmsAccount"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsStatus" alias="DrmsStatus"/>
+		<typeAlias type="com.capgemini.drms.model.DrmsDemandStatusCapability" alias="DrmsDemandStatusCapability"/>
+		<typeAlias type="com.capgemini.drms.model.DrmsResourceSkills" alias="DrmsResourceSkills"/>
+		<typeAlias type="com.capgemini.drms.model.CapgUserRole" alias="CapgUserRole"/>
+		<typeAlias type="com.capgemini.drms.model.DrmsDemandStatus" alias="DrmsDemandStatus"/>
+		<typeAlias type="com.capgemini.drms.model.Category" alias="Category"/>	
+		<typeAlias type="com.capgemini.drms.model.DrmsResourceType" alias="DrmsResourceType"/>
+		<typeAlias type="com.capgemini.drms.model.WeeklyReport" alias="WeeklyReport"/>
+	</typeAliases>
+	<mappers>
+	      <mapper resource="mapper/SkillMatrixMapper.xml"/>	
+	      <mapper resource="mapper/FlexibilityMapper.xml"/>	
+	      <mapper resource="mapper/AppDictionaryMapper.xml"/>
+	      <mapper resource="mapper/AppRoleMapper.xml"/>
+	      <mapper resource="mapper/AppUserMapper.xml"/>
+	      <mapper resource="mapper/DrmsDemandMapper.xml"/>
+	      <mapper resource="mapper/DrmsAllocationTypeMapper.xml"/>
+	      <mapper resource="mapper/DrmsCapabilityMapper.xml"/>
+	      <mapper resource="mapper/DrmsDesigationMapper.xml"/>
+	      <mapper resource="mapper/DrmsOppMapper.xml"/>
+	      <mapper resource="mapper/DrmsUserMapper.xml"/>
+	      <mapper resource="mapper/DrmsResourceMapper.xml"/>
+	      <mapper resource="mapper/DrmsSiteMapper.xml"/>
+	      <mapper resource="mapper/DrmsAccountMapper.xml"/>
+	      <mapper resource="mapper/DrmsStatusMapper.xml"/>
+	      <mapper resource="mapper/UserPermissionMapper.xml"/>
+	      <mapper resource="mapper/DbUserMapper.xml"/>
+	      <mapper resource="mapper/RoleUrlMapper.xml"/>
+	      <mapper resource="mapper/DrmsSkillFlexibilityMapper.xml"/>
+	      <mapper resource="mapper/DrmsDemandStatusCapabilityMapper.xml"/>
+	      <mapper resource="mapper/DrmsDemandStatusMapper.xml"/>
+	      <mapper resource="mapper/DrmsCategoryMapper.xml"/>
+	      <mapper resource="mapper/DrmsResourceTypeMapper.xml"/>
+	      <mapper resource="mapper/WeeklyReportMapper.xml"/>
+	</mappers>
+</configuration>

@@ -1,0 +1,43 @@
+<div class="panel panel-default req-tbe">
+	<div class="panel-body">
+		<table class="table req-tbe">
+			<thead>
+				<tr>
+					<th>Language Skill</th>
+					<th>Written Verbal</th>
+					<th>Level</th>
+					<th>Ops</th>
+				</tr>
+			</thead>
+				<tbody>
+					<tr ng-repeat="lang in $ctrl.langs track by $index">
+						<td>{{lang.langSkill}}</td>
+						<td>{{lang.wriVer}}</td>
+						<td>{{lang.level}}</td>
+						<td><span ng-click="$ctrl.doDel($index)" class="glyphicon glyphicon-remove"></span></td>
+					</tr>
+				</tbody>
+			</table>	
+  	</div>
+</div>
+<form ng-submit="$ctrl.add()">
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Language Skill</span>
+		<input type="text" class="form-control ipt-focus" ng-model="lang.langSkill" placeholder="Language Skill" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Written/Verbal</span>
+		<input type="text" class="form-control ipt-focus" ng-model="lang.wriVer" placeholder="Written/Verbal" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Level</span>
+		<input type="text" class="form-control ipt-focus" ng-model="lang.level" placeholder="Level" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Comments</span>
+		<input type="text" class="form-control ipt-focus" ng-model="lang.comment" placeholder="Comment" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input text-right">
+		<input class="sbmt-add" type="submit" value="add">
+	</div>
+</form>

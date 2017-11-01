@@ -1,0 +1,24 @@
+<div class="op-tb dmd-accord-fix">
+	<div class="reser-box">
+<!-- 		<div class="d-icon">add</div> -->
+	</div>
+	<table class="table req-tbe fx-mg-bt">
+		<thead>
+			<tr class="skill-tb-head">
+				<th>Skill</th>
+				<th>Level</th>
+				<th>Experience (month)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="skill in $ctrl.pgskills track by $index">
+				<td>{{skill.skill}}</td>
+				<td>{{skill.level}}</td>
+				<td>{{skill.experience}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="ski-paging">
+		<ul uib-pagination total-items="$ctrl.totalItems" items-per-page="$ctrl.perPage" ng-model="$ctrl.currPage" max-size="175" ng-change="$ctrl.pageChange()" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsCategoryDao">
+	<select id="findAllCategories" 
+		resultMap="categoryMap">
+		select
+		*
+		from
+		test_schema.Category
+		where
+		test_schema.Category.parentId = 0
+
+	</select>
+
+	<resultMap id="categoryMap" type="Category">
+		<id property="id" column = "id"/>
+		<result property="parent" column="parentId"/>
+		<result property="description" column="description"/>
+		<result property="name" column="name" />
+		<collection property="children" column="id" select="getChildrens" ofType="Category" />
+		
+	</resultMap>
+
+	<select id="getChildrens" parameterType="Long" resultMap="categoryMap" >  
+        SELECT * FROM test_schema.Category where test_schema.Category.parentId = #{id}  
+    </select>  
+</mapper>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CapgeUser DRMS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="artDialog/skins/blue.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="artDialog/jquery.artDialog.js"></script>
+<script type="text/javascript" src="js/capgUserAdd.js"></script>
+<script type="text/javascript" src="js/capgUser.js"></script>
+<script type="text/javascript">
+	function showTradeInterest() {
+		var textContent = $("#alertHetongText").html();
+		art.dialog({
+			title : 'ADD CAPGUSER',
+			lock : true,
+			content : textContent
+		});
+	}
+</script>
+<script type="text/javascript">   
+	function split(dir, e) {
+		var myform = document.getElementById("myform");
+		var currentpage = document.getElementById("p_currentpage");
+		var totalpage = document.getElementById("p_totalpage");
+		if (dir == "first") {
+			currentpage.value = "1";
+			myform.submit();
+		} else if (dir == "last") {
+			currentpage.value = totalpage.value;
+			myform.submit();
+		} else if (dir == "next") {
+			var temp = parseInt(currentpage.value) + 1;
+			if (temp > parseInt(totalpage.value)) {
+				currentpage.value = totalpage.value;
+			} else {
+				currentpage.value = temp;
+			}
+			myform.submit();
+		} else if (dir == "pre") {
+			var temp = parseInt(currentpage.value) - 1;
+			if (temp < 1) {
+				currentpage.value = "1";
+			} else {
+				currentpage.value = temp;
+			}
+			myform.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="myform" id="myform" action="GoodsManageServlet">
+      <input type="hidden" name="p_currentpage" id="p_currentpage" value="${currentpage}">
+      <input type="hidden" name="p_totalpage" id="p_totalpage" value="${totalpage}">
+      <input type="hidden" name="page_size" id="page_size" value="${pagesize}">
+    </form>
+	<div id="slide"></div>
+	<div id="hidden" class="main">
+		<div class="adm_con">
+			<div class="padd">
+				<div class="search">
+					<input type="text" class="seaInp" id="name"
+						placeholder="SEARCH WITH FULLNAME" onfocus="this.placeholder=''"
+						onblur="this.placeholder='SEARCH WITH FULLNAME'"/>
+						
+					<!-- CapgUserADD Start -->
+					<a href="javascript:void(0);" class="aBlue alertFuxi"
+						onclick="showTradeInterest()">+ ADD</a>
+					<div id="alertHetongText" class="disNone">
+						<div class="alertAuthenticationClass">
+							<div id="authenticationFormId">
+								<ul class="alertFormUl" style="list-style:none">
+									<li id="name">
+									<input class="alertInputText" id="ht_pwd"
+										placeholder="CAPGEMINI USER EMAIL"
+										onfocus="this.placeholder=''"
+										onblur="this.placeholder='CAPGEMINI USER EMAIL'" />
+									<input type="button" class="alertName" value="OK" onclick="getName();" /></li>
+									<li class="per"><label>ADD PERMISSION :</label></li>
+									<li>
+										<div id="chkItm" class="chkItm"></div>
+									</li>
+									<li class="but">
+										<button
+											onclick="window.location.href='./api/user/capgeUser.jsp'">CANCEL</button>
+										<button onclick="subRole();">SUBMIT</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- CapgUserADD End -->
+					
+				</div>
+				<form id="myForm" name="myForm" method="post">
+					<table class="tab"
+						style="table-layout: fixed; width: 100%; border: 0; cellspacing: 0; cellpadding: 0;">
+						<tbody id="tbd" style="background:white;">
+							<tr style="color:#FFF;background-color:#A8B8C2;font-size: 20px;text-transform:uppercase;">
+								<th class="tdh" scope="col" width="25%" id="employeeId">KIN_ID</th>
+								<th class="tdh" scope="col" width="25%" id="fullName">FullName</th>
+								<th class="tdh" scope="col" width="30%" id="roleName">Permission</th>
+								<th class="tdh" scope="col" width="20%" colspan="2">Operation</th>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<p class="ali_center">
+					<a href="javascript:void(0)" onclick="split('first',event)"> FIRST </a>
+					<a href="javascript:void(0)" onclick="split('pre',event)"> UP </a>|
+					<a href="javascript:void(0)" onclick="split('next',event)"> DOWN </a>
+					<a href="javascript:void(0)" onclick="split('last',event)"> LAST </a>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

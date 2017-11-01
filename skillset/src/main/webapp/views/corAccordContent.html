@@ -1,0 +1,45 @@
+<table class="table table-bordered dmd-margin-fix">
+					    <tr class="">
+					    	<th class="idx">#</th>
+					    	<th title="Demand ID" class="dmd-id">Demand ID</th>
+					    	<th title="Resource Type" class="res-tp">Resource Type</th>
+						    <th title="Demand Capability" class="dmd-cap">Demand Capability</th>
+						    <th title="Project Name" class="prj-nm">Project Name</th>
+						    <th title="Project Position" class="prj-pos">Project Position</th>
+						    <th title="Desigation" class="des">Desigation</th>
+						    <th title="Site" class="site">Site</th>
+						    <th title="Alternative Desigations" class="atr-des">Alternative Desigations</th>
+						    <th title="Allocation Ratio" class="all-tp">Allocation Ratio</th>
+							<th title="Allocation Type" class="all-tp">Allocation Type</th>
+							<th title="Assigned Capability" class="ass-cap">Assigned Capability</th>
+							<th title="Resource Name" class="res-nm">Resource Name</th>
+							<th title="Start Date" class="srt-dt">Start Date</th>
+							<th title="End Date" class="ed-dt">End Date</th>
+							<th title="Ops." class="ops">Ops.</th>
+					    </tr>
+					    <tr ng-repeat=" dmd in tables track by dmd.dmdId" class="">
+					    	<td class="">{{$index}}</td>
+					    	<td title="{{dmd.dmdShowId}}" class="">
+					    		{{dmd.dmdShowId}}
+					    	</td>
+					    	<td title="{{dmd.dmdResType}}" class="">{{dmd.dmdResType}}</td>
+						    <td title="{{dmd.drmsCapability.capName}}" class="">{{dmd.drmsCapability.capName}}</td>
+						    <td title="{{dmd.dmdProjName}}" class="">{{dmd.dmdProjName}}</td>
+						    <td title="{{dmd.dmdPosition}}" class="">{{dmd.dmdPosition}}</td>
+						    <td title="{{dmd.drmsDesigation.dsgName}}" class="">{{dmd.drmsDesigation.dsgName}}</td>
+						    <td title="{{dmd.drmsSite.siteName}}" class="">{{dmd.drmsSite.siteName}}</td>
+						    <td title="{{dmd.dmdAlterdsg}}" class="">{{dmd.dmdAlterdsg}}</td>
+						    <td title="{{dmd.dmdAllocRatio}}" class="">{{dmd.dmdAllocRatio}}</td>
+							<td title="{{dmd.drmsAllocationType.atpName}}" class="">{{dmd.drmsAllocationType.atpName}}</td>
+							<td title="{{dmd.drmsAssCapability.capName}}" class="">{{dmd.drmsAssCapability.capName}}</td>
+							<td title="{{dmd.drmsResource.resourceName}}" class="">{{dmd.drmsResource.resourceName}}</td>
+							<td title="{{dmd.startDate | date: 'yyyy-MM-dd'}}" class="">{{dmd.startDate | date: 'yyyy-MM-dd'}}</td>
+							<td title="{{dmd.endDate | date: 'yyyy-MM-dd'}}" class="">{{dmd.endDate | date: 'yyyy-MM-dd'}}</td>
+							<td  class="ops-drop-dis">
+								<cor-dropdown dmd="dmd" opp="aopp">
+  									<li menu-item bs-type="edit" ng-transclude class="list-group-item">Edit</li>
+  									<li menu-item bs-type="baseadd" ng-transclude class="list-group-item">Base Add</li>
+  								</cor-dropdown>	
+  							</td>
+					    </tr>			   			
+					</table>

@@ -1,0 +1,33 @@
+<ui-view></ui-view>
+<div class="op-tb-box">
+	<div class="op-tb">
+		<div class="op-tb-header">
+			<h4>demand</h4>
+		</div>
+		<div class="op-tb-ops">
+			<input ng-model="keyword" class="tb-search" type="text">
+		</div>
+		<div class="dmd-man">
+			<uib-accordion close-others="true">
+				<div uib-accordion-group ng-repeat="oppdmd in oppdmds track by $index" class="panel panel-default panel-fix" is-open="test">
+					<uib-accordion-heading>
+						<span class="sp-tag">
+							{{oppdmd.oppo.oppShowId}}	
+						</span>
+						<span>
+							{{oppdmd.oppo.oppName}}
+						</span>
+						<span class="badge">{{oppdmd.dmds.length}}</span>
+						<i class="pull-right glyphicon glyphicon-chevron-down"></i>
+					</uib-accordion-heading>
+					<div class="op-tb dmd-accord-fix">
+						<dmdtable-component dmds="oppdmd.dmds" redmds="oppdmd.dmds" opp-id="oppdmd.oppo.oppId"></dmdtable-component>
+					</div>
+				</div>
+			</uib-accordion>
+		</div>
+		<div class="paging-box">
+			<ul uib-pagination total-items="totalItems" items-per-page="itemsPer" ng-model="currPage" max-size="5" class="pagination-sm" boundary-link-numbers="true" force-ellipses="true" rotate="true"></ul>
+		</div>
+	</div>
+</div>

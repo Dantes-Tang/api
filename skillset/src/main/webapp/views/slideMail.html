@@ -1,0 +1,64 @@
+<div class="sld-mail-form">
+	<div class="lst">
+		<div class="mail-to-box">
+			<span>to</span>
+			<input ng-model="mail.to" type="text" />
+		</div>
+		<hr class="hr-in-flex">
+		<div class="hed-tit-box">
+			<span>open date</span>
+			<input ng-model="mail.opnDate" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>capability</span>
+			<input ng-model="mail.capa" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>position title</span>
+			<input ng-model="mail.posTit" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>Desired designation</span>
+			<input ng-model="mail.desDsg" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>hiring reason</span>
+			<input ng-model="mail.hirRes" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>hc required</span>
+			<input ng-model="mail.hcReq" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>Billing date</span>
+			<input ng-model="mail.billDate" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>working location</span>
+			<input ng-model="mail.wrkLoc" type="text" />
+		</div>
+		<div class="hed-tit-box">
+			<span>customer Interview</span>
+			<input ng-model="mail.cusInter" type="text" />
+		</div>
+		<hr class="hr-in-flex">
+		<div class="sld-textarea">
+			<span>project introduction (Including project name)</span>
+			<textarea ng-model="mail.projIntr" row="7"></textarea>
+		</div>
+		<div class="sld-textarea sld-textarea-mgt">
+			<span>Duties/Responsibilities</span>
+			<textarea ng-model="mail.duty" row="7"></textarea>
+		</div>
+		<div class="sld-textarea sld-textarea-mgt">
+			<span>others</span>
+			<textarea ng-model="mail.other" row="7"></textarea>
+		</div>
+		<hr class="hr-in-flex">
+		<tech-component skill-out="mail.teches"></tech-component>
+		<lang-component lang-out="mail.langs" class="sld-textarea-mgt"></lang-component>
+		<div class="hed-tit-box">
+				<button ng-click="send()" class="sld-btn">send</button>
+		</div>	
+	</div>
+</div>

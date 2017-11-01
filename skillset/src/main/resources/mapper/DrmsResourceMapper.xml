@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsResourceDao">
+
+	<select id="searchDrmsResourceAll"  parameterType="String" resultMap="DrmsResourceMap">
+		select * from DRMS_Resource where username= #{resourceName}
+	</select>
+	<resultMap id="DrmsResourceMap" type="DrmsResource">
+		<result property="resourceId" column="resource_id" />
+		<result property="resourceName" column="username" />
+		<result property = "name" column="name"/>
+	</resultMap>
+	<!-- <resultMap id = "SkillMatrixMap" type = "SkillMatrix">
+	
+		<id property="id" column="id"/>
+		<result property = "username" column = "username" />
+		<result property = "fullName" column = "fullName" />
+		<result property = "skill" column = "skill" />
+		<result property = "level" column = "level" />
+		<result property = "experience" column = "experience" />
+	</resultMap> -->
+	<select id="searchName" parameterType="int" resultType="String">
+	   select 
+        	  username
+       from
+           test_schema.DRMS_Resource 
+       where
+           resource_id = #{resourceId};
+	</select> 
+	<select id="searchResourceId" parameterType="String" resultMap="DrmsResourceMap">
+	select * from test_schema.DRMS_Resource 
+       where
+           username = #{resourceName};
+	</select>
+	<select id="findDrmsResourceSkills" parameterType="DrmsResourceSkills" resultMap="DrmsResourceSkillsMap">
+	select  distinct DRMS_Resource.username,DRMS_Resource.resource_id,DRMS_Resource.name,
+	SkillMatrix.skill,SkillMatrix.level,
+	SkillMatrix.experience,Flexibility.country,Flexibility.duration
+	from  DRMS_Resource left join SkillMatrix
+	on SkillMatrix.username=DRMS_Resource.username
+	left join Flexibility
+	on Flexibility.username=DRMS_Resource.username
+	<where>
+	<if test="resourceName !=null and resourceName!=''">
+	And DRMS_Resource.username LIKE CONCAT('%',#{resourceName},'%')
+	</if>
+	<if test="(name !=null and name!='')">
+	And DRMS_Resource.name LIKE CONCAT('%',#{name},'%')
+	</if>
+	</where>
+	;
+	</select>
+	<resultMap type="DrmsResourceSkills" id="DrmsResourceSkillsMap">
+	    <result property="resourceId" column="resource_id" />
+		<result property="resourceName" column="username" />
+		<result property="name" column = "name"/>
+		<collection property="skills" ofType="SkillMatrix">
+		    <result property="skill" column="skill"/>
+		    <result property="level" column="level"/>
+		    <result property="experience" column="experience"/>
+		</collection>
+		<collection property="sites" ofType="Flexibility">
+		    <result property="country" column="country"/>
+		    <result property="duration" column="duration"/>
+		</collection>
+		
+	</resultMap>
+	<select id="findDrmsResourceDsg" parameterType="String" resultMap="DrmsResourceDsgMap">
+	select  distinct DRMS_Resource.username,DRMS_Resource.resource_id,DRMS_Resource.name,dsg_name
+	from DRMS_Resource left outer join DRMS_Demand
+	on DRMS_Resource.resource_id=DRMS_Demand.dmd_res_id
+	left outer join DRMS_Desigation
+	on DRMS_Desigation.dsg_id=DRMS_Demand.dmd_dsg_id
+	where DRMS_Resource.resource_id=#{resourceId};
+	</select>
+	<resultMap type="DrmsResourceSkills" id="DrmsResourceDsgMap">
+	<result property="resourceId" column="resource_id" />
+	<result property="resourceName" column="username" />
+	<result property="name" column = "name"/>
+	<collection property="desigation" ofType="String">
+		<result property="desigation" column="dsg_name"/>
+	</collection>
+	</resultMap>
+</mapper>

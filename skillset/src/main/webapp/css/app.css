@@ -1,0 +1,243 @@
+#container {
+  padding-left: 0;
+  padding-right: 0;
+}
+#navbar ul li a {
+  color: #000;
+}
+#navbar ul li a:hover {
+  background-color: #eeeeee;
+}
+#navbar ul li.active a {
+  color: #fff;
+  background-color: #563d7c;
+  font-weight: bold;
+}
+#navbar ul li.active a:hover {
+  color: #fff;
+  background-color: #563d7c;
+  font-weight: bold;
+}
+.skillsetPage,
+.flexibilityPage,
+.searchPage,
+.roleManagementPage {
+  padding: 20px;
+}
+.skillsetPage .user-info,
+.flexibilityPage .user-info,
+.searchPage .user-info,
+.roleManagementPage .user-info {
+  font-size: 20px;
+  padding: 20px;
+}
+.skillsetPage .nav-tabs > li > a,
+.flexibilityPage .nav-tabs > li > a,
+.searchPage .nav-tabs > li > a,
+.roleManagementPage .nav-tabs > li > a {
+  border: none;
+  border-radius: 0;
+}
+.skillsetPage .nav-tabs > li > a:hover,
+.flexibilityPage .nav-tabs > li > a:hover,
+.searchPage .nav-tabs > li > a:hover,
+.roleManagementPage .nav-tabs > li > a:hover {
+  border: none;
+}
+.skillsetPage .navigation,
+.flexibilityPage .navigation,
+.searchPage .navigation,
+.roleManagementPage .navigation {
+  width: 23%;
+  margin-right: 1%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+  padding: 0;
+}
+.skillsetPage .navigation li,
+.flexibilityPage .navigation li,
+.searchPage .navigation li,
+.roleManagementPage .navigation li {
+  padding: 0;
+}
+.skillsetPage .navigation li a,
+.flexibilityPage .navigation li a,
+.searchPage .navigation li a,
+.roleManagementPage .navigation li a {
+  font-size: 17px;
+  display: block;
+  width: 100%;
+  color: #000;
+  cursor: pointer;
+  font-family: 'calibri';
+}
+.skillsetPage .navigation li a:hover,
+.flexibilityPage .navigation li a:hover,
+.searchPage .navigation li a:hover,
+.roleManagementPage .navigation li a:hover {
+  border: none;
+}
+.skillsetPage .navigation li a .hasActiveData,
+.flexibilityPage .navigation li a .hasActiveData,
+.searchPage .navigation li a .hasActiveData,
+.roleManagementPage .navigation li a .hasActiveData {
+  background-color: #c3bed4;
+  border: 2px solid #563d7c;
+  border-radius: 10px;
+  display: inline-block;
+  height: 12px;
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  width: 12px;
+}
+.skillsetPage .navigation li.active a,
+.flexibilityPage .navigation li.active a,
+.searchPage .navigation li.active a,
+.roleManagementPage .navigation li.active a {
+  background: #563d7c;
+  color: #fff;
+  font-weight: bold;
+}
+.skillsetPage .navigation li.active a .hasActiveData,
+.flexibilityPage .navigation li.active a .hasActiveData,
+.searchPage .navigation li.active a .hasActiveData,
+.roleManagementPage .navigation li.active a .hasActiveData {
+  background-color: #c3bed4;
+  border-color: #fff;
+}
+.skillsetPage .nav-content,
+.flexibilityPage .nav-content,
+.searchPage .nav-content,
+.roleManagementPage .nav-content {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+.skillsetPage .nav-content table thead th,
+.flexibilityPage .nav-content table thead th,
+.searchPage .nav-content table thead th,
+.roleManagementPage .nav-content table thead th,
+.skillsetPage .nav-content table thead td,
+.flexibilityPage .nav-content table thead td,
+.searchPage .nav-content table thead td,
+.roleManagementPage .nav-content table thead td {
+  background: #563d7c;
+  color: #fff;
+  font-size: 14px;
+}
+.skillsetPage .nav-content table .expCol,
+.flexibilityPage .nav-content table .expCol,
+.searchPage .nav-content table .expCol,
+.roleManagementPage .nav-content table .expCol {
+  width: 25%;
+  text-align: center;
+}
+.skillsetPage .nav-content table .levelCol,
+.flexibilityPage .nav-content table .levelCol,
+.searchPage .nav-content table .levelCol,
+.roleManagementPage .nav-content table .levelCol {
+  width: 20%;
+  text-align: center;
+}
+.skillsetPage .nav-content table .durationCol,
+.flexibilityPage .nav-content table .durationCol,
+.searchPage .nav-content table .durationCol,
+.roleManagementPage .nav-content table .durationCol {
+  width: 50%;
+  text-align: center;
+}
+.skillsetPage .nav-content table .expMonth,
+.flexibilityPage .nav-content table .expMonth,
+.searchPage .nav-content table .expMonth,
+.roleManagementPage .nav-content table .expMonth {
+  width: 100%;
+  text-align: center;
+  border: none;
+}
+.skillsetPage .nav-content table .techLevel,
+.flexibilityPage .nav-content table .techLevel,
+.searchPage .nav-content table .techLevel,
+.roleManagementPage .nav-content table .techLevel {
+  width: 100%;
+  text-align: center;
+}
+.skillsetPage .nav-content table .durationInput,
+.flexibilityPage .nav-content table .durationInput,
+.searchPage .nav-content table .durationInput,
+.roleManagementPage .nav-content table .durationInput {
+  width: 100%;
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .expCol,
+.flexibilityPage .nav-content table.search-table .expCol,
+.searchPage .nav-content table.search-table .expCol,
+.roleManagementPage .nav-content table.search-table .expCol {
+  width: 30%;
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .levelCol,
+.flexibilityPage .nav-content table.search-table .levelCol,
+.searchPage .nav-content table.search-table .levelCol,
+.roleManagementPage .nav-content table.search-table .levelCol {
+  width: 25%;
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .expVal,
+.flexibilityPage .nav-content table.search-table .expVal,
+.searchPage .nav-content table.search-table .expVal,
+.roleManagementPage .nav-content table.search-table .expVal {
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .levelVal,
+.flexibilityPage .nav-content table.search-table .levelVal,
+.searchPage .nav-content table.search-table .levelVal,
+.roleManagementPage .nav-content table.search-table .levelVal {
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .durationCol,
+.flexibilityPage .nav-content table.search-table .durationCol,
+.searchPage .nav-content table.search-table .durationCol,
+.roleManagementPage .nav-content table.search-table .durationCol {
+  width: 50%;
+  text-align: center;
+}
+.skillsetPage .nav-content table.search-table .durationVal,
+.flexibilityPage .nav-content table.search-table .durationVal,
+.searchPage .nav-content table.search-table .durationVal,
+.roleManagementPage .nav-content table.search-table .durationVal {
+  text-align: center;
+}
+.skillsetPage .nav-content .btn-save,
+.flexibilityPage .nav-content .btn-save,
+.searchPage .nav-content .btn-save,
+.roleManagementPage .nav-content .btn-save {
+  background-color: #563d7c;
+  border-color: #563d7c;
+  color: #fff;
+  width: 200px;
+}
+.skillsetPage .nav-content .btn-save:hover,
+.flexibilityPage .nav-content .btn-save:hover,
+.searchPage .nav-content .btn-save:hover,
+.roleManagementPage .nav-content .btn-save:hover {
+  color: #fff;
+}
+.skillsetPage .search-result-panel,
+.flexibilityPage .search-result-panel,
+.searchPage .search-result-panel,
+.roleManagementPage .search-result-panel {
+  margin-top: 30px;
+}
+.skillsetPage .no-search-result-panel,
+.flexibilityPage .no-search-result-panel,
+.searchPage .no-search-result-panel,
+.roleManagementPage .no-search-result-panel {
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+

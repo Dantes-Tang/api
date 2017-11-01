@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsAccountDao">	
+
+<insert id="insertDrmsAccount" parameterType="DrmsAccount" useGeneratedKeys="true" keyProperty="accountId">
+		insert into DRMS_Account
+		(account_id,account_name)
+		values
+		(#{accountId},#{accountName})
+</insert>
+	
+<update id="updateDrmsAccount" parameterType="DrmsAccount">
+		update DRMS_Account
+		<set>
+			<if test="accountName != null and accountName != '' ">
+				account_name = #{accountName}
+			</if>
+		</set>
+		where account_id = #{accountId}
+</update>
+	
+<select id="getAll"  resultMap="DrmsAccountMap">
+		  select
+		   * 
+		  from  DRMS_Account    
+</select>
+<select id="getDrmsAccountByName"  parameterType="String" resultMap="DrmsAccountMap">
+		  select
+		   * 
+		  from  DRMS_Account
+		  where  account_name = #{accountName}
+</select>
+   
+<resultMap id="DrmsAccountMap" type="DrmsAccount">
+		<result property="accountId" column="account_id" />
+		<result property="accountName" column="account_name" />
+		<result property="shortName" column="account_shortname" />
+		<result property="accountPartner" column="account_partner" />
+</resultMap>
+</mapper>

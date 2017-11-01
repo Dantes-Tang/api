@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CapgeUser DRMS</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/capgUserEdit.js"></script>
+</head>
+<body>
+	<div id="slidePer" class="slide">
+		<div class="sld-inpt-box">
+			<div class="header">
+				<span>CapgUser Edit</span>
+			</div>
+			<div class="sld-main">
+				<div class="hed-tit-box">
+					<span>FullName</span> <input id="sFullname" type="text" readonly />
+				</div>
+				<div class="hed-tit-box">
+					<span>Permission</span> <input type="hidden" id="roleNameVal">
+					<div class="chkItm">
+						<ul id="chkItm" style='list-style: none;'></ul>
+					</div>
+				</div>
+				<div class="hed-tit-box">
+					<input type="button" class="sld-btn" onclick="ajaxRequest();"
+						value="Save" />
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

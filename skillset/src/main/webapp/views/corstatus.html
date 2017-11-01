@@ -1,0 +1,1 @@
+<select ng-options="status.statusName for status in $ctrl.statuses track by status.statusId" ng-model="$ctrl.slModel" ng-blur="$ctrl.indicateValidate()" ng-class="{invalid: $ctrl.isInvalid}" class="slt-fix"></select>

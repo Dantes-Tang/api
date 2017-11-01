@@ -1,0 +1,113 @@
+#showDemand {
+  text-align: center;
+}
+@media only screen and (max-width: 1600px) {
+  #showDemand th td,
+  #showDemand th th {
+    font-size: 16px !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #showDemand th td,
+  #showDemand th th {
+    font-size: 12px !important;
+  }
+}
+@media only screen and (min-width: 715px) and (max-width: 1024px) {
+  #showDemand th td,
+  #showDemand th th {
+    font-size: 10px !important;
+  }
+  #showDemand th table td:nth-child(2),
+  #showDemand th table td:nth-child(3),
+  #showDemand th table th:nth-child(2),
+  #showDemand th table th:nth-child(3) {
+    display: none;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 715px) {
+  #showDemand th td,
+  #showDemand th th {
+    font-size: 6px !important;
+  }
+  #showDemand th table td:nth-child(2),
+  #showDemand th table td:nth-child(3),
+  #showDemand th table th:nth-child(4),
+  #showDemand th table th:nth-child(5) {
+    display: none;
+  }
+}
+#showDemand th header {
+  height: 80px;
+}
+#showDemand th header div {
+  padding: 0px 140px;
+}
+#showDemand th header div a {
+  font-size: 20px;
+}
+#showDemand th header div span.headline {
+  display: inline;
+  font-size: 20px;
+  font-family: nevisbold, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  line-height: 80px;
+  height: 80px;
+}
+#showDemand th header div span.headline a {
+  font-size: 25px;
+}
+#showDemand th div.container {
+  border-color: #EAEAEA;
+  width: 100%;
+}
+#showDemand th div.container #table-add {
+  border: 1px solid;
+  border-color: #EAEAEA;
+  border-radius: 7px;
+}
+#showDemand th div.container #table-add thead tr {
+  height: 30px;
+  font-size: 25px;
+  background-color: #D6D6D6;
+  border-radius: 7px 7px 0 0;
+}
+#showDemand th div.container #table-add thead tr td a.add-btn {
+  margin: 0px 6px 0px 700px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+#showDemand th div.container #table-add tbody tr.head-color {
+  background-color: #FAFAFA;
+}
+#showDemand th div.container #table-add tbody th {
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-weight: 410;
+  width: 90px;
+}
+#showDemand th div.container #table-add tbody td {
+  box-shadow: 0px 2px 0px 0px  #E3E3E3;
+}
+#showDemand th div.container #table-add tbody td.edit {
+  text-align: center;
+}
+#showDemand th footer {
+  padding-right: 0px;
+  height: 80px;
+}
+#showDemand .size {
+  height: 26px;
+}
+#showDemand span.addon-size {
+  padding: 0px 0px;
+}
+#showDemand .select-padding {
+  padding: 0px;
+}
+#showDemand .hidden {
+  visibilty: hidden;
+}
+

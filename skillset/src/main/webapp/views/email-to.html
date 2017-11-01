@@ -1,0 +1,117 @@
+<div class="modal-header">
+	<h5 class="modal-title" id="modal-title">Resource Demand Request Form</h5>
+	<div class="input-group input-group-lg msd-input">
+  		<span class="input-group-addon" id="sizing-addon3">To :</span>
+  		<input type="text" class="form-control" placeholder="Email-address" aria-describedby="sizing-addon3" ng-model="$ctrl.emailInformation.to">
+	</div>
+</div>
+
+<div class="modal-body" id="modal-body">
+<!-- 	<ul class="resource-style list-group" > -->
+<!-- 				<li class="resource-item list-group-item" > -->
+				
+<!-- 					<div class="resource-name"><label>Name:</label><span >{{$ctrl.tbds.drmsCapability.capName}}</span></div> -->
+					
+<!-- 				</li> -->
+<!-- 	</ul> -->
+		<div title="Demand Information">
+    		<div class="input-group input-group-lg msd-input" >
+  				<span class="input-group-addon" id="sizing-addon3">Opening Date</span>
+				<input ng-model="$ctrl.emailInformation.opnDate" type="text" class="form-control" placeholder="OPENINGDATE..." aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Capability</span>
+				<span class="form-control" id="sizing-addon3" ng-model="$ctrl.emailInformation.capability">{{$ctrl.tbds.drmsCapability.capName}}</span>
+				
+			</div>
+			
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Position Title</span>
+				
+				<input ng-model="$ctrl.emailInformation.posTit" type="text" class="form-control" placeholder="POSITION" aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Desired Designation</span>
+				<span class="form-control" ng-model="$ctrl.emailInformation.desDes" >{{$ctrl.tbds.drmsDesigation.dsgName}}</span>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Hiring Reason</span>
+				<input ng-model="$ctrl.emailInformation.hirRes" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">HC Required</span>
+				<span class="form-control" ng-model="$ctrl.emailInformation.hcReq">1</span>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Billing Date</span>
+				<span class="form-control" ng-model="$ctrl.emailInformation.billDate">{{$ctrl.tbds.startDate | date:'yyyy-MM-dd'}}</span>
+<!-- 				<input type="text" ng-focus="$ctrl.calendarToggle2()" class="form-control anb-can-fix" uib-datepicker-popup="yyyy-MM-dd" ng-model="$ctrl.request.billDate" is-open="$ctrl.calOpen2" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormates" /> -->
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Working Location</span>
+				<span class="form-control" ng-model="$ctrl.emailInformation.wrkLoc">{{$ctrl.tbds.drmsSite.siteName}}</span>
+<!-- 				<select ng-model="$ctrl.request.wrkLoc" ng-options="site.siteName for site in $ctrl.sites track by site.dsgId" class="form-control"></select> -->
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon cell-title" id="sizing-addon3">Customer Interview Requried</span>
+				<input ng-model="$ctrl.emailInformation.cusIntrReq" class="form-control cell-input">
+			</div>				
+		</div>
+		<div  title="Project Name & Duty">
+			<div class="des-title">
+				<span class="font-title">Project Introduction(Including Project Name)</span>
+				<textarea ng-model="$ctrl.emailInformation.prjIntr"></textarea>
+			</div>
+			<div class="des-title">
+				<span class="font-title">Duties Responsibilities</span>
+				<textarea ng-model="$ctrl.emailInformation.dutRes"></textarea>
+			</div>
+		</div>
+		<div  title="Requirements">
+			
+				<span class="font-title">Requirements</span>
+				<table class="table hover table-style">
+					<tr>
+						<th class="td-wid background-img-add1" ng-click="$ctrl.addTech()">TechnicalSkills</th>
+						<th class="td-wid">Minimum Experience(Years)</th>
+						<th class="td-wid">Ideal Experience(Years)</th>
+						<th class="td-wid">Comments</th>
+					</tr>
+					<tr ng-repeat="tech in $ctrl.emailInformation.techs">
+					 	<td><input type="text" class="td-wid" ng-model="tech.techName"></td>
+					 	<td><input type="text" class="td-wid" ng-model="tech.techMini"></td>
+					 	<td><input type="text" class="td-wid" ng-model="tech.techIdeal"></td>
+					 	<td><input type="text" class="td-wid" ng-model="tech.techComments"></td>
+					</tr>
+					<tr>
+						<th class="td-wid background-img-add2" ng-click="$ctrl.addLang()">Lanauge Skill</th>
+						<th class="td-wid">Written/Verbal</th>
+						<th class="td-wid">Level</th>
+						<th class="td-wid">Comments</th>
+					</tr>
+					
+					<tr ng-repeat="lang in $ctrl.emailInformation.langs">
+						<td><input type="text" class="td-wid" ng-model="lang.langName"></td>
+						<td><input type="text" class="td-wid" ng-model="lang.langWrite"></td>
+						<td><input type="text" class="td-wid" ng-model="lang.langLevel"></td>
+						<td><input type="text" class="td-wid" ng-model="lang.langComments"></td>
+					</tr>
+				</table>
+			
+			
+			
+		</div>
+		<div title="Other">
+			<div class="des-title">
+				<span class="font-title">Others</span>
+				<textarea ng-model="$ctrl.emailInformation.others"></textarea>
+			</div>
+		</div>				
+
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Save & Submit</button>
+	<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+</div>
+<pre>{{$ctrl.emailInformation |json}}</pre>

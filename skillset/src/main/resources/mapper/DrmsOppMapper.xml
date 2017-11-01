@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsOppDao">
+			
+	<insert id="insertDrmsOpp" parameterType="DrmsOpp"
+	 useGeneratedKeys="true" keyProperty="oppId">
+		insert into DRMS_Opportunity
+		(opp_name,opp_account_id,opp_probability,opp_show_id,opp_status_id)
+		values 
+		(#{oppName},#{drmsAccount.accountId},#{oppProbability},#{oppShowId},#{drmsStatus.statusId})
+	</insert>	
+	
+	
+	<select id="getDrmsOpp" resultMap="DrmsOppMap">
+	  select
+	   * 
+	  from DRMS_Opportunity      
+	 </select>
+	 <select id="getDrmsOppByStatus" resultMap="DrmsOppMap">
+	   select 
+	   * 
+	   from DRMS_Opportunity
+	   where  opp_status_id != 3 and opp_status_id != 4 
+	 </select>
+	 
+	 <select id="countAccountOpp"  parameterType="DrmsAccount" resultType="int">
+	  select
+	   count(*) 
+	  from DRMS_Opportunity   
+	  where opp_account_id =#{accountId}
+	 </select>
+	<select   id="selectStatus"  parameterType="int" resultMap="DrmsStatusMap">
+	  select * from DRMS_Status  where status_id = #{opp_status_id}
+	</select>
+	
+	<select   id="selectAccount"  parameterType="int" resultMap="DrmsAccountMap">
+	  select * from DRMS_Account where account_id = #{opp_account_id}
+	</select>
+
+	<update id="updateDrmsOpp" parameterType="DrmsOpp">
+		update  DRMS_Opportunity
+		<set>
+		    <if test="oppShowId != null">
+		         opp_show_id = #{oppShowId},
+		    </if>
+			<if test="oppName != null">
+				opp_name = #{oppName},
+			</if>
+			<if test="oppProbability != null">
+			    opp_probability = #{oppProbability},
+			</if>
+			<if test="drmsStatus != null">
+			    opp_status_id = #{drmsStatus.statusId},
+			</if>
+			<if test="drmsAccount != null">
+			   opp_account_id = #{drmsAccount.accountId}
+			</if>
+			 
+		</set>	
+		       where opp_id = #{oppId}
+	</update>
+	
+	
+	<resultMap id="DrmsStatusMap"  type="DrmsStatus">
+	<result property="statusId"   column="status_id"  />
+	<result property="statusName"   column="status_name"  />
+	</resultMap>
+	
+	
+	<resultMap id="DrmsAccountMap"  type="DrmsAccount">
+	  <result property="accountId"    column="account_id"></result>
+	  <result property="accountName"    column="account_name"></result>
+	</resultMap>
+
+
+	<resultMap id="DrmsOppMap" type="DrmsOpp">
+		<result property="oppId"          column="opp_id" />
+		<result property="oppShowId"      column="opp_show_id"/>
+		<result property="oppName"        column="opp_name" />
+		<result property="oppProbability" column="opp_probability"/>
+	<association property="drmsAccount"  column="opp_account_id" select="selectAccount"></association>
+	<association property="drmsStatus"  column="opp_status_id" select="selectStatus"></association>
+	</resultMap>
+	
+	
+</mapper>

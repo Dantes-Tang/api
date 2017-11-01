@@ -1,0 +1,67 @@
+<div ng-controller="RoleManagementController" 
+	class="viewPage roleManagementPage container">
+	<form  name="form" class="css-form"  novalidate="novalidate">
+	<div class="col-lg-9 nav-content">
+	
+				
+			<table
+				class="table table-hover table-condensed table-bordered table-responsive">
+				<thead>
+					 <tr>
+						<th class="expCol">Role</th>
+						<th class="expCol">Description</th>
+						<th class="expCol">Edit/Delete</th>
+					</tr> 
+				</thead>
+					<tbody>
+					
+						<tr ng-repeat="role in roles[0] | filter:titleFilter | orderBy:order " class="tr-add" >
+							<td title="Role">
+								<span ng-if="!role.$edit">{{role.roleName}}</span>
+								<div ng-if="role.$edit" ng-model="role.roleName"><input class=" border ng-touched ng-valid ng-invalid" type="text" name="uName" ng-model="role.roleName" required="required" ></div>
+								<div ng-show=" form.$submitted||form.uName.$touched">
+									<div ng-show="form.uName.$error.required" >role's name is necessary </div>
+								</div>
+								
+							</td>
+							<td title="Description">
+								<span ng-if="!role.$edit">{{role.description}} </span>
+								<div ng-if="role.$edit" ng-model="role.description"><input class="border ng-touched ng-valid ng-invalid" name="uDesc" type="text" ng-model="role.description" required="required"></div>
+								<div ng-show="form.$submitted || form.uDesc.$touched">
+									<span ng-show="form.uDesc.$error.required" >role's description is necessary</span>
+								</div>
+							</td>					
+						
+							<td><a ng-click="deleteRole($index)"><span class="glyphicon glyphicon-remove update"></span></a>
+							    <!-- <button ng-click="editRole($index)" ng-model="editButton">{{editName[$index]}}</button>-->
+								<!--  <button ng-click="editRole(role,role.name,value)">Edit</button>-->
+								<!--  <editable-field field-value="$ctrl.role.desc" field-type="text" on-update="$ctrl.update('desc',value)" >Edit</editable-field>-->
+								<!-- <edit-role ng-model="role" ng-show="showEdit"></edit-role> -->
+								
+								<a ng-if="!role.$edit" ng-click="role.$edit=true;editRole($index)" id="edit-btn" ><span class="glyphicon glyphicon-pencil update"></span></a>
+								<a ng-if="role.$edit" ng-click="role.$edit=false;saveRole(role)" id="save-btn" ><span class="glyphicon glyphicon-ok update"></span></a>
+							</td>
+							
+						</tr>
+						
+					</tbody>
+				
+			</table>
+
+			<div class="select">
+				 <input type="text" ng-model="titleFilter" class="input-text" ><span class="glyphicon glyphicon-search search-btn" id="search-btn"></span>
+				&nbsp;&nbsp;&nbsp;Sort-by:<select ng-model="order" class="select-text">
+							<option value="name">role-name</option>
+							<option value="desc">role-description</option>
+						</select>
+						
+			
+						
+				
+				<a class="add" ng-click="addRole(role)"><span class="glyphicon glyphicon-plus-sign"></span> Create-Role</a>
+			
+			</div>
+		</div>
+		</form>
+		<pre>{{roles| json}}</pre>
+</div>

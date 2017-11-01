@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.UserPermissionDao">
+	<select id="findUserPermission" parameterType="java.lang.String"
+		resultMap="PermissionMap">
+		select Role_Name
+		from App_Role join App_User_Role
+		on App_User_Role.Role_ID=App_Role.ID
+		join App_User
+		on App_User_Role.User_ID=App_User.ID
+		where App_User.Name=#{userName};
+	</select>
+	<resultMap id="PermissionMap" type="java.lang.String">
+		<result property="Role_Name" column="Role_Name" />
+	</resultMap>
+
+	<select id="findUser" parameterType="java.lang.String"
+		resultMap="UserNameMap">
+		select App_User.ID,App_User.Name,Role_Name
+		from App_Role join App_User_Role
+		on App_User_Role.Role_ID=App_Role.ID
+		join App_User
+		on App_User_Role.User_ID=App_User.ID
+		where App_User.Name=#{userName};
+	</select>
+
+	<resultMap id="UserNameMap" type="java.util.Map">
+		<result property="id" column="ID" />
+		<result property="Name" column="Name" />
+		<result property="Role_Name" column="Role_Name" />
+	</resultMap>
+
+	<select id="findIDByUserName" parameterType="java.lang.String"
+		resultMap="UserIDMap">
+		select ID from App_User where Name=#{userName};
+	</select>
+
+	<resultMap id="UserIDMap" type="java.lang.String">
+		<result property="id" column="ID" />
+	</resultMap>
+
+	<insert id="addCapgUser" parameterType="CapgUser">
+		insert into App_User (Name , fullname , firstName , lastname , email ,
+		employee_id , joinedDate , phone, manager,facePic)
+		values(#{userName},#{fullName},#{firstName},#{lastName},#{email},#{employeeId},#{joinDate},#{phone},#{manager},#{facePic});
+	</insert>
+
+	<insert id="addCapgUserRole" parameterType="java.lang.String">
+		insert into App_User_Role(User_ID,Role_ID)values(#{id},2);
+	</insert>
+	<select id="findUserInformation" parameterType="java.lang.String"
+		resultMap="InformationMap">
+		select App_User.id,Name,Role_Name
+		from App_Role join App_User_Role
+		on App_User_Role.Role_ID=App_Role.ID
+		join App_User
+		on App_User_Role.User_ID=App_User.ID
+		where App_User.Name=#{userName};
+	</select>
+	<resultMap type="java.util.Map" id="InformationMap">
+		<result property="Name" column="Name" />
+		<result property="Role_Name" column="Role_Name" />
+		<result property="id" column="ID" />
+	</resultMap>
+</mapper>

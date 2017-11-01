@@ -1,0 +1,126 @@
+<div ng-controller="DictController">
+	<div class="container-fluid">
+		<div class="panel panel-default">
+	  		<div class="panel-heading">
+	    		<h3 class="panel-title">Data Dictionary</h3>
+	  		</div>
+	  		<div class="panel-body">
+	    		<div class="panel panel-default">
+	  				<table class="table table-bordered">
+	    				<thead>
+	    					<tr class="aline">
+	    						<th class="col-th">#</th>
+	    						<th class="col-tr">Data Module</th>
+	    						<th class="col-tr">Data Code</th>
+		    					<th class="col-tr">Data Name</th>
+		    					<th class="col-tr">Parents id</th>
+		    					<th class="col-tr">Priority</th>
+		    					<th class="col-tr">Description</th>
+		    					<th class="col-tr">Retired</th>
+		    					<th class="col-tr">Update Date</th>
+		    					<th class="col-tr">Ops.</th>
+	    					</tr>	    					
+	    				</thead>
+	    				<tbody>
+	    					<tr ng-repeat="insert in inserts track by $index" class="info {{insert.validate ? '' : ' danger'}}">
+	    						<th>{{$index+1}}</th>
+	    						<td class="col-tr"><input ng-model="insert.dataModule" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.dataCode" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.dataName" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.dataParent_Id" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.description" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.priority" type="text" /></td>
+	    						<td class="col-tr"><input ng-model="insert.retired" type="text" /></td>
+	    						<td class="col-tr"></td>
+	    						<td class="col-tr">
+	    							<span ng-click="saveInsertOps($index)" class="glyphicon glyphicon-floppy-save"></span>
+	    							<span ng-click="deleteOps($index)" class="glyphicon glyphicon-trash"></span>
+	    						</td>
+	    					</tr>
+	    					<tr class="aline">
+	    						<th class="col-th">#</th>
+	    						<th colspan="8">
+	    							<span>Search: </span><input type="text" />
+	    						</th>
+		    					<th class="col-tr">
+		    						<span ng-click="insertOps()" class="glyphicon glyphicon-plus"></span>
+		    					</th>
+	    					</tr>
+	    					<tr class="{{dict.$edit ? 'warning' : 'active'}}" ng-repeat="dict in dicts track by $index">
+	    						<th>{{$index+1}}</th>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.dataModule}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].dataModule" type="text"/>
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.dataCode}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].dataCode" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.dataName}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].dataName" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.dataParentId}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].dataParent_Id" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.priority}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].priority" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.description}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].description" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span ng-if="!dict.$edit">{{dict.retired}}</span>
+	    							<input ng-if="dict.$edit" ng-model="editCache[0].retired" type="text" />
+	    						</td>
+	    						<td class="col-tr">
+	    							<span>{{dict.updateDate}}</span>
+	    						</td>
+	    						<td class="col-tr">
+	    							<div ng-if="!dict.$edit">
+		    							<span ng-click="editOps(dict, $index)" class="glyphicon glyphicon-pencil"></span>
+		    							<span class="glyphicon glyphicon-trash"></span>	    							
+	    							</div>
+	    							<div ng-if="dict.$edit">
+		    							<span ng-click="saveOps()" class="glyphicon glyphicon-floppy-save"></span>
+		    							<span ng-click="refreshOps($index)" class="glyphicon glyphicon-refresh"></span>	    								
+	    							</div>
+	    						</td>
+	    					</tr>  						
+	    				</tbody>
+	    				<tfoot></tfoot>
+	    			</table>
+	  				</div>
+				</div>
+				backEndData:
+				<pre>
+					{{backEndData | json}}
+				</pre>
+				dicts:
+				<pre>
+					{{dicts | json}}
+				</pre>
+				editCache:
+				<pre>
+					{{editCache | json}}
+				</pre>
+				insert:
+				<pre>
+					{{inserts | json}}
+				</pre>
+				saves:
+				<pre>
+					{{saves | json}}
+				</pre>
+				response:	
+				<pre>
+					{{result | json}}
+				</pre>						
+	  		</div>
+		</div>	
+	</div>
+
+</div>

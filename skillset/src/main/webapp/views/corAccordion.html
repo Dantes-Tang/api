@@ -1,0 +1,23 @@
+<div class="panel panel-default pe-margin">
+	<div class="panel-heading">
+ 		<ul class="nav nav-pills">
+			<li class="oppid">OP.ID:</li>
+			<li class="oppidv">{{heading.oppShowId}}</li>
+			<li class="oppname">Name:</li>
+			<li class="namev">{{heading.oppName}}</li>
+			<li class="acc">A/C:</li>
+			<li class="accv">{{heading.drmsAccount.accountName}}</li>
+			<li class="stat">STAT:</li>
+			<li class="statv">{{heading.drmsStatus.statusName}}</li>
+			<li class="pr">PR:</li>
+			<li class="prv">{{heading.oppProbability}}</li>
+			<li class="ops">
+				
+			</li>
+			<li class="archor"><span ng-click="toggle()" class="glyphicon glyphicon-chevron-up achor-right"></span></li>
+		</ul>
+	</div>
+	<div ng-transclude class="panel-body pe-pdn-none">
+    	
+	</div>
+</div>

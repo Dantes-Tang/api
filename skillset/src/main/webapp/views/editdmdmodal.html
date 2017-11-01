@@ -1,0 +1,93 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">Demand: <input ng-model="$ctrl.dmd.dmdShowId" type="text" /></h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Resource Type</label>
+				<input ng-model="$ctrl.dmd.dmdResType" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>			
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Demand Capability</label>
+				<select ng-model="$ctrl.dmd.drmsCapability" ng-options="cap.capName for cap in $ctrl.capabilitys track by cap.capId" class="form-control"></select>
+			</div>				
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Project Name</label>
+				<input ng-model="$ctrl.dmd.dmdProjName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>				
+		</div>		
+	</div>
+		<div class="row">
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Project Position</label>
+				<input ng-model="$ctrl.dmd.dmdPosition" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>			
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Desigation</label>
+				<select ng-model="$ctrl.dmd.drmsDesigation" ng-options="dsg.dsgName for dsg in $ctrl.desgations track by dsg.dsgId" class="form-control"></select>
+			</div>				
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Alternative Desigations</label>
+				<input ng-model="$ctrl.dmd.dmdAlterdsg" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>				
+		</div>		
+	</div>
+		<div class="row">
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Allocation Ratio</label>
+				<input ng-model="$ctrl.dmd.dmdAllocRatio" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>			
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Allocation Type</label>
+				<select ng-model="$ctrl.dmd.drmsAllocationType" ng-options="alloc.atpName for alloc in $ctrl.allocType track by alloc.atpId" class="form-control"></select>
+			</div>				
+		</div>	
+		<div class="col-lg-4 col-md-4 col-xs-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Site</label>
+				<select ng-model="$ctrl.dmd.drmsSite" ng-options="site.siteName for site in $ctrl.sites track by site.siteId" class="form-control"></select>
+			</div>				
+		</div>			
+	</div>
+		<div class="row">
+		<div class="col-lg-6 col-md-6 col-xs-6">
+				<p class="input-group">
+					<label for="exampleInputEmail1">Start Date</label>
+					<input readonly type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="$ctrl.dmd.startDate" is-open="$ctrl.openStart" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormates" />
+					<span class="input-group-btn">
+						<button ng-click="$ctrl.startIsOpen()" type="button" class="btn btn-default calendar-fix"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>				
+				</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<p class="input-group">
+				<label for="exampleInputEmail1">End Date</label>
+				<input readonly type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="$ctrl.dmd.endDate" is-open="$ctrl.openEnd" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormates" />
+				<span class="input-group-btn">
+					<button ng-click="$ctrl.endIsOpen()" type="button" class="btn btn-default calendar-fix"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>				
+			</p>		
+		</div>	
+
+	</div>
+</div>
+
+
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Save & Submit</button>
+	<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Canel</button>
+</div>

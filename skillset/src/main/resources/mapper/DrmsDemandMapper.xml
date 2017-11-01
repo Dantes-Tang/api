@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsDemandDao">
+
+	<insert id="insertDrmsDemand" parameterType="DrmsDemand"
+		useGeneratedKeys="true" keyProperty="dmdId">
+		insert into DRMS_Demand
+		(dmd_opp_id,
+		dmd_res_id,
+		dmd_res_type,
+		dmd_site_id,
+		dmd_dsg_id,
+		dmd_alter_dsg,
+		dmd_proj_name,
+		dmd_position,
+		dmd_ass_cap_id,
+		dmd_atp_id,
+		dmd_alloc_ratio,
+		dmd_start_date,
+		dmd_end_date,
+		dmd_cap_id,
+		dmd_show_id,
+		dmd_status_id
+		)
+		values
+		(#{drmsOpp.oppId},
+		#{drmsResource.resourceId},
+		#{dmdResType},
+		#{drmsSite.siteId},
+		#{drmsDesigation.dsgId},
+		#{dmdAlterdsg},
+		#{dmdProjName},
+		#{dmdPosition},
+		#{drmsAssCapability.capId},
+		#{drmsAllocationType.atpId},
+		#{dmdAllocRatio},
+		#{startDate},
+		#{endDate},
+		#{drmsCapability.capId},
+		#{dmdShowId},
+		#{drmsDemandStatus.dmdStatusId}
+		)
+	</insert>
+
+
+	<select id="searchDrmsDemandById" parameterType="int" resultMap="DrmsDemandMap">
+		select
+		*
+		from DRMS_Demand
+		where dmd_opp_id = #{oppId}
+
+	</select>
+	<select id="searchDrmsDemand" parameterType="int" resultMap="DrmsDemandMap">
+		select
+		*
+		from DRMS_Demand
+		where dmd_id = #{dmdId}
+	</select>
+	<select id="searchDrmsDemandTBDByID" parameterType="int"
+		resultMap="DrmsDemandMap">
+		select
+		*
+		from
+		DRMS_Demand
+		where
+		dmd_id = #{dmdId};
+	</select>
+
+	<select id="countDemandOfOpp" parameterType="DrmsOpp"
+		resultType="int">
+		select
+		count(*)
+		from
+		DRMS_Demand
+		where
+		dmd_opp_id =
+		#{oppId};
+	</select>
+
+	<select id="matchedDemands" resultMap="DrmsDemandMap">
+
+		select
+		*
+		from
+		DRMS_Demand
+		left join
+		DRMS_Resource ON
+		DRMS_Demand.dmd_id = DRMS_Resource.resource_id
+		where
+		DRMS_Resource.username != 'TBD';
+
+	</select>
+	<select id="searchDemands" parameterType="int" resultMap="DrmsDemandMap">
+		select
+		*
+		from
+		DRMS_Demand,
+		DRMS_Resource
+		where
+		Resource_ID = DRMS_Demand.dmd_res_id
+
+		and Resource_ID = #{resourceId}
+		order by DRMS_Demand.dmd_start_date , DRMS_Demand.dmd_end_date desc;
+
+	</select>
+
+	<select id="searchDrmsDemandTBD" resultMap="DrmsDemandMap">
+		
+		SELECT *
+		FROM
+		DRMS_Demand
+		where dmd_res_id
+		in(
+		select
+		DRMS_Resource.resource_id from DRMS_Resource
+		where DRMS_Resource.username = 'TBD'
+		);
+	</select>
+	<select id="searchAllDrmsDemand" resultMap="DrmsDemandMap">
+		
+		SELECT *
+		FROM
+		DRMS_Demand
+		where dmd_res_id
+		in(
+		select
+		DRMS_Resource.resource_id from DRMS_Resource
+		);
+	</select>
+	<select id="searchAllDemands" resultMap="DrmsDemandMap">
+		select * from DRMS_Demand;
+	</select>
+	
+	<select id = "searchDrmsDemandsByStatusAll" resultMap="DrmsDemandMap"  >
+				select * from DRMS_Demand 
+	</select>
+	<select id = "searchDrmsDemandsByStatus" resultMap="DrmsDemandMap"  >
+				select * from DRMS_Demand where DRMS_Demand.dmd_status_id != 7 and DRMS_Demand.dmd_status_id != 6
+	</select>
+	
+
+	<update id="updateDrmsDemand" parameterType="DrmsDemand">
+		update DRMS_Demand
+		<set>
+			<if test="drmsOpp != null">
+				dmd_opp_id = #{drmsOpp.oppId},
+			</if>
+			<if test="dmdResType != null">
+				dmd_res_type = #{dmdResType},
+			</if>
+			<if test=" drmsResource != null">
+				dmd_res_id = #{drmsResource.resourceId},
+			</if>
+			<if test="drmsSite != null">
+				dmd_site_id = #{drmsSite.siteId},
+			</if>
+			<if test="drmsDesigation != null">
+				dmd_dsg_id = #{drmsDesigation.dsgId},
+			</if>
+			<if test="dmdAlterdsg != null">
+				dmd_alter_dsg = #{dmdAlterdsg},
+			</if>
+			<if test="dmdProjName != null">
+				dmd_proj_name = #{dmdProjName},
+			</if>
+			<if test="dmdPosition != null">
+				dmd_position = #{dmdPosition},
+			</if>
+			<if test="drmsAssCapability != null">
+				dmd_ass_cap_id = #{drmsAssCapability.capId},
+			</if>
+			<if test="drmsAllocationType != null">
+				dmd_atp_id = #{drmsAllocationType.atpId},
+			</if>
+			<if test="dmdAllocRatio != null">
+				dmd_alloc_ratio = #{dmdAllocRatio},
+			</if>
+			<if test="startDate != null">
+				dmd_start_date = #{startDate},
+			</if>
+			<if test="endDate != null">
+				dmd_end_date = #{endDate},
+			</if>
+			<if test="drmsCapability != null">
+				dmd_cap_id = #{drmsCapability.capId},
+			</if>
+			<if test="dmdShowId != null">
+				dmd_show_id = #{dmdShowId},
+			</if>
+			<if test="drmsDemandStatus != null">
+				dmd_status_id = #{drmsDemandStatus.dmdStatusId},
+			</if>
+		</set>
+
+		where dmd_id = #{dmdId}
+	</update>
+
+	<update id="updateResourceId">
+		update DRMS_Demand
+		<trim prefix="set" suffixOverrides=",">
+			<if test="resourceId !=null and resourceId !=''">
+				dmd_res_id = #{resourceId},dmd_status_id = 2,dmd_ass_cap_id = #{capId},
+			</if>
+		</trim>
+		where dmd_id = #{dmdId}
+	</update>
+
+
+
+	<resultMap id="DrmsDemandMap" type="DrmsDemand">
+		<result property="dmdId" column="dmd_id" />
+		<result property="resourceId" column="dmd_res_id" />
+		<result property="dmdAlterdsg" column="dmd_alter_dsg" />
+		<result property="dmdProjName" column="dmd_proj_name" />
+		<result property="dmdPosition" column="dmd_position" />
+		<result property="dmdAllocRatio" column="dmd_alloc_ratio" />
+		<result property="startDate" column="dmd_start_date" />
+		<result property="endDate" column="dmd_end_date" />
+		<result property="dmdShowId" column="dmd_show_id" />
+		<result property="dmdResType" column="dmd_res_type" />
+
+
+		<association property="drmsAssCapability" column="dmd_ass_cap_id"
+			select="selectAssCapability"></association>
+		<association property="drmsOpp" column="dmd_opp_id"
+			select="selectOpp"></association>
+		<association property="drmsResource" column="dmd_res_id"
+			select="selectResouce"></association>
+		<association property="drmsSite" column="dmd_site_id"
+			select="selectSite"></association>
+		<association property="drmsDesigation" column="dmd_dsg_id"
+			select="searchDrmsDesigationById"></association>
+		<association property="drmsAllocationType" column="dmd_atp_id"
+			select="selectAllocationType"></association>
+		<association property="drmsCapability" column="dmd_cap_id"
+			select="selectCapability"></association>
+		<association property="drmsDemandStatus" column="dmd_status_id"
+			select="selectDemandStatus"></association>
+	</resultMap>
+	
+	<select id="selectDemandStatus" parameterType="int"
+		resultMap="DrmsDemandStatusMap">
+		select * from DRMS_DemandStatus where dmdStatus_id=#{dmd_status_id}
+	</select>
+	<select id="selectAssCapability" parameterType="int"
+		resultMap="DrmsCapabilityMap">
+		select * from DRMS_Capability where cap_id=#{dmd_ass_cap_id}
+	</select>
+	<select id="selectOpp" parameterType="int" resultMap="DrmsOppMap">
+		select *
+		from DRMS_Opportunity where opp_id = #{dmd_opp_id}
+	</select>
+	<select id="selectResouce" parameterType="int" resultMap="DrmsResourceMap">
+		select
+		* from DRMS_Resource where resource_id=#{dmd_res_id}
+	</select>
+	<select id="selectSite" parameterType="int" resultMap="DrmsSiteMap">
+		select *
+		from DRMS_Site where site_id=#{dmd_site_id}
+	</select>
+	<select id="selectCapability" parameterType="int" resultMap="DrmsCapabilityMap">
+		select * from DRMS_Capability where cap_id=#{dmd_cap_id}
+	</select>
+	<select id="selectAllocationType" parameterType="int"
+		resultMap="DrmsAllocationTypeMap">
+		select * from DRMS_AllocationType where atp_id=#{dmd_atp_id}
+	</select>
+	<select id="searchDrmsDesigationById" parameterType="int"
+		resultMap="DrmsDesigationMap">
+		select * from DRMS_Desigation where dsg_id=#{dsgId}
+	</select>
+	<resultMap id="DrmsOppMap" type="DrmsOpp">
+		<result property="oppId" column="opp_id" />
+		<result property="oppShowId" column="opp_show_id" />
+		<result property="oppName" column="opp_name" />
+		<result property="oppProbability" column="opp_probability" />
+		<association property="drmsAccount" column="opp_account_id"
+			select="selectAccount"></association>
+		<association property="drmsStatus" column="opp_status_id"
+			select="selectStatus"></association>
+	</resultMap>
+	<select id="selectStatus" parameterType="int" resultMap="DrmsStatusMap">
+		select *
+		from DRMS_Status where status_id = #{opp_status_id}
+	</select>
+	<select id="selectAccount" parameterType="int" resultMap="DrmsAccountMap">
+		select
+		* from DRMS_Account where account_id = #{opp_account_id}
+	</select>
+	<resultMap id="DrmsStatusMap" type="DrmsStatus">
+		<result property="statusId" column="status_id" />
+		<result property="statusName" column="status_name" />
+	</resultMap>
+	<resultMap id="DrmsAccountMap" type="DrmsAccount">
+		<result property="accountId" column="account_id" />
+		<result property="accountName" column="account_name" />
+	</resultMap>
+
+	<resultMap id="DrmsDesigationMap" type="DrmsDesigation">
+		<result property="dsgId" column="dsg_id" />
+		<result property="dsgName" column="dsg_name" />
+	</resultMap>
+	<resultMap id="DrmsResourceMap" type="DrmsResource">
+		<result property="resourceId" column="resource_id" />
+		<result property="resourceName" column="username" />
+	</resultMap>
+	<resultMap id="DrmsSiteMap" type="DrmsSite">
+		<result property="siteId" column="site_id" />
+		<result property="siteName" column="site_name" />
+	</resultMap>
+	<resultMap id="DrmsAllocationTypeMap" type="DrmsAllocationType">
+		<result property="atpId" column="atp_id" />
+		<result property="atpName" column="atp_name" />
+	</resultMap>
+	<resultMap id="DrmsCapabilityMap" type="DrmsCapability">
+		<result property="capId" column="cap_id" />
+		<result property="capName" column="cap_name" />
+	</resultMap>
+	<resultMap id="DrmsDemandStatusMap" type="DrmsDemandStatus">
+		<result property="dmdStatusId" column="dmdStatus_id" />
+		<result property="dmdStatusName" column="dmdStatus_name" />
+	</resultMap>
+</mapper>

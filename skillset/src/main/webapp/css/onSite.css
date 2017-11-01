@@ -1,0 +1,39 @@
+.onSite{
+	margin:50px 15%;
+	text-align:center;
+}	
+.onSiteButton,.onsiteTh{
+	width: 400px;
+	height: 30px;
+	background: #337ab7;;
+	color: #fff;
+	font-size: 16px;
+	text-align:center;
+	border:1px solid white;
+}
+.onSiteTd,.onSiteInput{
+	width:400px;
+	height:30px;
+	text-align:center;
+	border:1px solid black;
+}
+.onSite button{
+	border: 1px solid transparent;
+	border-radius: 4px;
+	width: 200px;
+	margin-top: 1%;
+}
+.searchOnSite{
+  width:300px;
+  height:30px;
+  border-radius:15px;
+  margin-left:60%;
+  background-image:url(../images/ic_search.png);
+  background-repeat:no-repeat;
+  background-position:20px center;
+  background-size:20px;
+  padding-left:60px;
+  border:0px;
+  box-shadow: 5px 5px 5px #888888;
+  margin-bottom:20px;
+  }

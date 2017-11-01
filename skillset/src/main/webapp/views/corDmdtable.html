@@ -1,0 +1,26 @@
+<div class="op-tb-ops">
+	<div ui-sref="account.demand.add({oppId: $ctrl.oppId})" class="add-ops">add</div>
+</div>
+<div class="op-tb-man">
+	<table class="table op-tb-fix dmd-tb">
+		<thead>
+			<tr>
+				<th>demand capability</th>
+				<th>project name</th>
+				<th>site</th>
+				<th>resource type</th>
+				<th>resource name</th>
+				<th>start date</th>
+				<th>end date</th>
+				<th>status</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr a-demand ng-repeat="dmd in $ctrl.pgdmds track by $index" dmd="dmd" opp-id="$ctrl.oppId"></tr>
+		</tbody>
+	</table>
+	<div class="paging-box paging-box-dmd">
+		<ul uib-pagination total-items="$ctrl.totalItems" items-per-page="$ctrl.perPage" ng-model="$ctrl.currPage" ng-change="$ctrl.pgOnChange()" max-size="175" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div id="slidelst" class="slide" slide-list>
+	<div class="sld-inpt-box">
+		<div class="header">
+			<span>demand edit</span>
+		</div>
+		<div class="sld-main">
+			<div class="hed-tit-box">
+				<span>demand id</span>
+				<input readonly ng-model="dmd.dmdShowId" type="text" />
+			</div>
+			<div class="hed-tit-box">
+				<span>Demand capability</span>
+				<capa-component sl-model="dmd.drmsCapability" class="slt-f-comp"></capa-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>project name</span>
+				<validate-component sl-model="dmd.dmdProjName" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>site</span>
+				<site-component sl-model="dmd.drmsSite" class="slt-f-comp"></site-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>resource type</span>
+				<restype-component sl-model="dmd.dmdResType" class="slt-f-comp"></restype-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Project Position</span>
+				<restype-component sl-model="dmd.dmdPosition" class="slt-f-comp"></restype-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Designation</span>
+				<des-component sl-model="dmd.drmsDesigation" class="slt-f-comp"></des-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Alternative Designations</span>
+				<validate-component sl-model="dmd.dmdAlterdsg" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Allocation Ratio</span>
+				<validate-component sl-model="dmd.dmdAllocRatio" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Allocation Type</span>
+				<alloc-component sl-model="dmd.drmsAllocationType" class="slt-f-comp"></alloc-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Start Date</span>
+				<date-component sl-model="dmd.startDate"></date-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>End Date</span>
+				<date-component sl-model="dmd.endDate"></date-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Assigned Capability</span>
+				<input readonly ng-model="dmd.drmsAssCapability.capName" type="text" />
+			</div>
+			<div class="hed-tit-box">
+				<span>Resource name</span>
+				<input readonly ng-model="dmd.drmsResource.resourceName" type="text" />
+			</div>
+			<div class="hed-tit-box">
+				<span>Status</span>
+				<dmdstatus-component sl-model="dmd.drmsDemandStatus" class="slt-f-comp"></dmdstatus-component>
+			</div>
+			<div class="hed-tit-box">
+				<button ng-click="dmdEditSave()" class="sld-btn">Save</button>
+			</div>
+				
+		</div>
+		
+	</div>
+</div>

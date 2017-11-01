@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+    http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<import resource="spring-application-dao.xml" />
+	<import resource="mailbean.xml" />
+	<import resource="spring-application-security.xml" />
+	<import resource="dataSource.xml" />
+	<context:annotation-config />
+	<context:component-scan base-package="com.capgemini.drms" />
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource-mysql" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="load*" read-only="true" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="save*" timeout="300" propagation="REQUIRED" />
+			<tx:method name="someOtherBusinessMethod" timeout="300"
+				propagation="REQUIRES_NEW" />
+			<tx:method name="*" timeout="300" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="allServiceMethods"
+			expression="execution(* com.capgemini.drms.service.*Service.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethods" />
+	</aop:config>
+
+
+	<!-- ldap security -->
+
+	<bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldap://wadcnhgh02.corp.capgemini.com/" />
+		<property name="base" value="dc=corp,dc=capgemini,dc=com" />
+	</bean>
+
+	<bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="contextSource" />
+		<property name="ignorePartialResultException" value="true" />
+	</bean>
+
+	<bean id="adAuthenticationProvider"
+		class="com.capgemini.drms.web.ldap.ActiveDirectoryLdapAuthenticationProvider">
+		<constructor-arg value="corp.capgemini.com" />
+		<constructor-arg value="ldap://wadcnhgh02.corp.capgemini.com/" />
+		<property name="userDetailsContextMapper" ref="ldapUserDetailsContextMapper" />
+	</bean>
+
+	<bean id="ldapUserDetailsContextMapper"
+		class="com.capgemini.drms.web.ldap.LdapUserDetailsContextMapper">
+	</bean>
+<!-- 	文件上传解析器  -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="maxUploadSize" value="10485760000"></property>
+<!-- 		最大上传文件大小 -->
+		<property name="maxInMemorySize" value="10960"></property>
+	</bean>
+
+
+</beans>
+

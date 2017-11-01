@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">Opportunity: <input ng-model="$ctrl.opp.oppShowId" type="text" /></h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Opportunity Name</label>
+				<input ng-model="$ctrl.opp.oppName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>			
+		</div>
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Account</label>
+				<select ng-model="$ctrl.opp.drmsAccount" ng-options="acct.accountName for acct in $ctrl.selects.accounts track by acct.accountId" class="form-control"></select>
+			</div>				
+		</div>	
+	</div>
+
+		<div class="row">
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Probability</label>
+				<input ng-model="$ctrl.opp.oppProbability" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>			
+		</div>
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Status</label>
+				<select ng-model="$ctrl.opp.drmsStatus" ng-options="status.statusName for status in $ctrl.selects.statuses track by status.statusId" class="form-control"></select>
+			</div>				
+		</div>	
+	</div>
+
+</div>
+
+
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Save & Submit</button>
+	<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Canel</button>
+</div>

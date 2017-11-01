@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DRMS</title>
+
+<link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="js/lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+<link rel="stylesheet" href="css/animate.css"/>
+<link rel="stylesheet" type="text/css" href="css/demands.css">
+<link rel="stylesheet" type="text/css" href="css/modalContent.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/oppdmdreport.css">
+<link rel="stylesheet" type="text/css" href="css/showDemand.css">
+<link rel="stylesheet" type="text/css" href="css/oppAccordion.css">
+<link rel="stylesheet" type="text/css" href="css/cordropdown.css">
+<link rel="stylesheet" type="text/css" href="css/mailmodal.css">
+<link rel="stylesheet" type="text/css" href="css/index_2.css">
+<link rel="stylesheet" type="text/css" href="css/capability.css">
+<link rel="stylesheet" type="text/css" href="css/app.css">
+<link rel="stylesheet" type="text/css" href="css/demandPage.css">
+<link rel="stylesheet" type="text/css" href="css/re-onSite.css">
+<!-- user Info -->
+<link rel="stylesheet" type="text/css" href="css/userInfoStyle.css">
+<link rel="stylesheet" type="text/css" href="css/onSite.css">
+<link rel="stylesheet" type="text/css" href="css/skillset2.css">
+
+<link rel="stylesheet" type="text/css" href="css/report.css">
+
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+</head>
+<body ng-app="indexApp" body-hidden> 
+
+	<div class="dr-header">
+		<div class="title-box">
+			<div class="title">
+				<span class="tit">DRMS</span>
+				<img class="img-cg" src="./images/cg2.png">			
+			</div>
+		</div>
+		<div class="tab-box">
+			<head-tabnav>
+				<li nav-item level="2" ui-sref="account" >Account</li>
+				<li nav-item level="2" ui-sref="capa">Capability</li>
+				<li nav-item level="2" ui-sref="resource.ovrv">Resource</li>
+				<!-- <li nav-item level="2" ui-sref="recrut">Recruitment</li> -->
+				<li nav-item level="1" ui-sref="me">me</li>
+				<li nav-item level="3" ui-sref="admin">admin</li>
+			</head-tabnav>
+		</div>
+		<div class="acct-box">
+			<userinfo-component></userinfo-component>
+		</div>
+		<a class="indexA" href="login.jsp" style="color: #FFF;  width: 80px; margin-top: 28px;">log out</a>
+	</div>
+	<ui-view></ui-view>
+	<script type="text/javascript" src="js/lib/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/lib1/angular/angular.min.js"></script>
+	
+	<script type="text/javascript" src="js/lib1/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="js/lib1/angular-ui-router.statehelper/statehelper.min.js"></script>
+	<script type="text/javascript" src="js/lib1/angular-upload/angular-upload.js"></script>
+	
+	<script type="text/javascript" src="js/lib/moment/moment.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+	<script type="text/javascript" src="js/lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+	
+
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/router-config/ap-config.js"></script>
+	<script type="text/javascript" src="js/router-config/cm-config.js"></script>
+	<script type="text/javascript" src="js/router-config/res-config.js"></script>
+	<script type="text/javascript" src="js/router-config/me-config.js"></script>
+	<script type="text/javascript" src="js/router-config/adm-config.js"></script>
+	
+	<script type="text/javascript" src="js/oppodmdService.js"></script>
+	<script type="text/javascript" src="js/oppdmdControllers.js"></script>
+	<script type="text/javascript" src="js/add-demand.js"></script>
+	<script type="text/javascript" src="js/add-demandService.js"></script>
+	<script type="text/javascript" src="js/odreport.js"></script>
+	
+	<script type="text/javascript" src="js/filters/odfilter.js"></script>
+	<script type="text/javascript" src="js/filters/pageFilter.js"></script>
+	<script type="text/javascript" src="js/filters/matrixFilter.js"></script>
+	<script type="text/javascript" src="js/filters/tabFilter.js"></script>
+	
+	<script type="text/javascript" src="js/directives/oddirective.js"></script>
+	<script type="text/javascript" src="js/directives/accordionDirective.js"></script>
+	<script type="text/javascript" src="js/directives/filterDirective.js"></script>
+	<script type="text/javascript" src="js/directives/dropdownDirective.js"></script>
+	<script type="text/javascript" src="js/directives/tabpaneDirective.js"></script>
+	<script type="text/javascript" src="js/directives/tabpaneDirective.js"></script>
+	<script type="text/javascript" src="js/directives/leftnavDirective.js"></script>
+	<script type="text/javascript" src="js/directives/connavDirective.js"></script>
+	<script type="text/javascript" src="js/directives/slideDirective.js"></script>
+	<script type="text/javascript" src="js/directives/detailDirective.js"></script>
+	<script type="text/javascript" src="js/directives/activeDirective.js"></script>
+	<script type="text/javascript" src="js/directives/brhnavDirective.js"></script>
+	<script type="text/javascript" src="js/directives/onsiteNavDirecitve.js"></script>
+	<script type="text/javascript" src="js/directives/apdemandDirective.js"></script>
+	<script type="text/javascript" src="js/directives/cmdemandDirective.js"></script>
+	
+	<script type="text/javascript" src="js/controllers/apController.js"></script>
+	<script type="text/javascript" src="js/controllers/cmController.js"></script>
+	<script type="text/javascript" src="js/controllers/alertmodal.js"></script>
+	<script type="text/javascript" src="js/controllers/meController.js"></script>
+	
+	<script type="text/javascript" src="js/services/matrixService.js"></script>
+	<script type="text/javascript" src="js/services/mailsendService.js"></script>
+	<script type="text/javascript" src="js/services/slidecallbackService.js"></script>
+	<script type="text/javascript" src="js/services/userInfoService.js"></script>
+	<script type="text/javascript" src="js/services/cmResService.js"></script>
+	<script type="text/javascript" src="js/services/resFillService.js"></script>
+	<script type="text/javascript" src="js/services/resourceTypeService.js"></script>
+	<script type="text/javascript" src="js/services/onsiteService.js"></script>
+	
+	<script type="text/javascript" src="js/components/oppdmdAddEdit.js"></script>
+	<script type="text/javascript" src="js/components/mailSend.js"></script>
+	<script type="text/javascript" src="js/components/skillnLang.js"></script>
+	<script type="text/javascript" src="js/components/optselects.js"></script>
+	<script type="text/javascript" src="js/components/dmdtable.js"></script>
+	<script type="text/javascript" src="js/components/info.js"></script>
+	<script type="text/javascript" src="js/components/inptValidate.js"></script>
+	<script type="text/javascript" src="js/components/userInfo.js"></script>
+	<script type="text/javascript" src="js/components/skilltable.js"></script>
+	<script type="text/javascript" src="js/components/autoFill.js"></script>
+	
+	<script type="text/javascript" src="js/lib1/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="js/lib1/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>	
+	
+	<script type="text/javascript" src="js/lib1/angular/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="js/lib1/angular/angular-sanitize/angular-sanitize.min.js"></script>
+	
+	<script type="text/javascript" src="js/showDemand.js"></script>
+	<script type="text/javascript" src="js/showDemandService.js"></script>
+	<script type="text/javascript" src="js/mobile-demand.js"></script> 
+
+	
+	<script type="text/javascript" src="js/capability.js"></script>
+	<script type="text/javascript" src="js/availableInstanceModal.js"></script>
+	<script type="text/javascript" src="js/AvailableController.js"></script>
+	
+	<script type="text/javascript" src="js/capabilityService.js"></script>
+	<script type="text/javascript" src="js/demandPage.js"></script>
+	<script type="text/javascript" src="js/demandPageSer.js"></script>
+	
+	<script type="text/javascript" src="js/capabilityService.js"></script>
+	
+	<script type="text/javascript" src="js/jq/userInfo.js"></script>
+
+	<script type="text/javascript" src="js/jq/ajaxfileupload.js"></script>
+
+	<script type="text/javascript" src="js/onSite.js"></script>
+	
+	<script type="text/javascript" src="js/jq/skillset2.js"></script>
+	
+	<script type="text/javascript" src="js/controller.js"></script>	
+	<script type="text/javascript" src="js/report.js"></script>	
+	<script type="text/javascript" src="js/reportService.js"></script>
+</body>
+</html>

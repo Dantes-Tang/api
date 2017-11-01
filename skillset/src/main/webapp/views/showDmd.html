@@ -1,0 +1,156 @@
+<div ng-controller="DemandResourceController" id="showDemand">
+		<header role="banner" data-reactid="6">
+			<div>
+				<a href="#"><span>Home</span> <span
+					class="glyphicon glyphicon-home fa-home"></span></a> <span
+					class="headline">go back to <a href='#'>Demand</a></span>
+				<span></span>
+			</div>
+
+		</header>
+		<div class=" col-lg-12  container well">
+			<table class="table  table-condensed table-bordered table-hover" id="table-add">
+				<thead>
+					<tr class="">
+						<td colspan="13">DevOps Engineers HSBC20160001</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Project-Name</th>
+						<th>Resource-Type</th>
+						<th>Site-Account</th>
+						<th>Desigation</th>
+						<th>Position</th>
+						<th>Capbility-Name</th>
+						<th>Allocation-Type</th>
+						<th>Allocation-Ratio</th>
+						<th>Start-Time</th>
+						<th>End-Time</th>
+						<th>Assignment-Capbilbity</th>
+						<th>Alternative-Desigation</th>
+						<th>matching</th>
+					</tr>
+					
+					<tr ng-repeat="demand in $ctrl.demands track by $index">
+						<td><span>{{demand.dmdProjName}}</span></td>
+						<td><span>{{demand.dmdResType}}</span></td>
+						<td><span> {{demand.drmsSite.siteName}}</span></td>
+						<td><span>{{demand.drmsDesigation.dsgName}}</span></td>
+						<td><span>{{demand.dmdPosition}}</span></td>
+						<td><span>{{demand.drmsCapability.capName}}</span></td>
+						<td><span>{{demand.drmsAllocationType.atpName}}</span></td>
+						<td><span>{{demand.dmdAllocRatio}}</span></td>
+						<td class="calender"><span size>{{demand.startDate | date}}</span>
+							<div ng-if="demand.$edit">
+								<div class="dropdown form-group">
+									<a class="dropdown-toggle" id="dropdownStart" role="button"
+										data-toggle="dropdown" data-target="#" href="#">
+										<div class="input-group date size">
+											<input type="text" class="form-control size"
+												data-ng-model="demand.startDate"> <span
+												class="input-group-addon addon-size"><i
+												class="glyphicon glyphicon-calendar "></i></span>
+										</div>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+										<datetimepicker data-ng-model="demand.startDate"
+											data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' }"
+											data-on-set-time="startDateOnSetTime()"
+											data-before-render="startDateBeforeRender($dates)">
+										</datetimepicker>
+									</ul>
+								</div>
+							</div></td>
+						<td class="calender"><span class="size">{{demand.endDate | date}}</span>
+							<div ng-if="demand.$edit">
+								<div class="dropdown form-group ">
+									<a class="dropdown-toggle" id="dropdownEnd" role="button"
+										data-toggle="dropdown" data-target="#" href="#">
+										<div class="input-group date size">
+											<input type="text" class="form-control size"
+												data-ng-model="demand.endDate"> <span
+												class="input-group-addon addon-size"><i
+												class="glyphicon glyphicon-calendar"></i></span>
+										</div>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+										<datetimepicker data-ng-model="demand.endDate"
+											data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed' }"
+											data-on-set-time="endDateOnSetTime()"
+											data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)">
+										</datetimepicker>
+									</ul>
+								</div>
+							</div></td>
+						<td><span>{{demand.drmsAssCapability.capName}}</span>
+							<div ng-if="demand.$edit" ng-model="demand.capbility_id">
+								<input type="text" class="form-control size"
+									ng-model="demand.capbility_id">
+							</div></td>
+						<td><span>{{demand.drmsDesigation.dsgName}}</span>
+							<div ng-if="demand.$edit" ng-model="demand.site_id">
+								<input type="text" class="form-control size"
+									ng-model="demand.site_id">
+							</div></td>
+
+						<td>
+							<button class="edit" ng-click="$ctrl.matching(demand.dmdId)">matching</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="button"></div>
+		<!-- new   demand  -->
+
+		<div class=" col-lg-12  container well" style="padding: 0px;">
+			<table class="table  table-condensed table-bordered table-hover"
+				id="table-add">
+				<thead>
+					<tr class="">
+						<td colspan="13">The match is successful</td>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr>
+						<th>userName</th>
+						<th>fullName</th>
+						<th>level</th>
+						<th>skill</th>
+						<th>experice</th>
+						<th>mismatching</th>
+					</tr>
+					<tr ng-repeat="demand in $ctrl.successDemands track by $index">
+						<td><span>{{demand.username}}
+						</td>
+						<td><span>{{demand.fullName}}
+						</td>
+						<td><span> {{demand.level}}
+						</td>
+						<td><span>{{demand.skill}}</span> 
+						</td>
+						<td><span>{{demand.experience}}</span>
+						</td>
+
+						<td>
+							<button class="edit" ng-click="$ctrl.mismatching($index)">mismatching</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+
+<!-- 			<div ng-click='$ctrl.excel()'>excel</div> -->
+			<pre>{{demands|json}}</pre>
+			<pre>{{successDemands|json}}</pre>
+			<!-- JSON  文件的显示 -->
+			<footer>
+				<div>
+					<img src="images/capgemini.png">
+				</div>
+			</footer>
+		</div>
+	</div>

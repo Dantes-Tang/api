@@ -1,0 +1,16 @@
+<div class="con-nav">
+	<div class="con-nav-lst">
+		<select class="form-control input-sm cagt-sel">
+			<option>Some busniess</option>
+		</select>
+		<span>
+			ALL REQUEST
+		</span>
+		<ul class="list-group">
+			<li ng-repeat="pane in panes track by $index" ng-class="{conactive: pane.selected}" ng-click="selected(pane)" class="list-group-item"><span>{{pane.tag}}</span></li>
+<!-- 			<li class="list-group-item conactive"><span>PENDING</span></li> -->
+		</ul>
+	</div>
+<!-- 					ng-transclude below -->
+	<div ng-transclude class="c-con"></div>
+</div>

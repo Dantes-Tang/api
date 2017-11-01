@@ -1,0 +1,73 @@
+<div ng-controller="SearchController"
+	class="viewPage searchPage container">
+	<div class="row search-bar">
+		<div class="col-lg-3" style="padding-left:5px;">
+			<input type="text" class="form-control" maxlength="99"
+				ng-model="searchParam.fullName" placeholder="Employee Name">
+		</div>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" maxlength="99"
+				ng-model="searchParam.skill" placeholder="Skill">
+		</div>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" maxlength="99"
+				ng-model="searchParam.country" placeholder="Country">
+		</div>
+		<div class="col-lg-3 text-right">
+			<button class="btn btn-default btn-primary btn-search" ng-click="search();">Search</button>
+			<button class="btn btn-default" ng-click="clearSearchParam();">Clear</button>
+		</div>
+	</div>
+	<div class="row search-result-panel" ng-show="searchResult.length">
+		<ul class="nav nav-tabs nav-stacked navigation col-lg-3">
+			<li role="presentation" ng-repeat="employee in searchResult"
+				class="{{employee.userName==currentEmployee.userName?'active':''}}"><a
+				ng-click="setCurrentEmployee(employee)">{{employee.fullName}}</a></li>
+		</ul>
+		<div class="col-lg-9 nav-content">
+			<table
+				class="table table-hover table-condensed table-bordered table-responsive search-table">
+				<thead>
+					<tr>
+						<th class="skillCol">Skill</th>
+						<th class="expCol">Experience (in month)</th>
+						<th class="levelCol">Level</th>
+					</tr>
+				</thead>
+				<tbody ng-if="currentEmployee.skills.length">
+					<tr ng-repeat="skill in currentEmployee.skills">
+						<td class="skillVal">{{skill.skill}}</td>
+						<td class="expVal">{{skill.experience}}</td>
+						<td class="levelVal">{{skill.level}}</td>
+					</tr>
+				</tbody>
+				<tbody ng-if="!currentEmployee.skills.length">
+					<tr>
+						<td class="text-center" colspan="2">No skillset data for {{currentEmployee.fullName}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<table
+				class="table table-hover table-condensed table-bordered table-responsive search-table">
+				<thead>
+					<tr>
+						<th class="countryCol">Country/City</th>
+						<th class="durationCol">Acceptable duration (in month)</th>
+					</tr>
+				</thead>
+				<tbody  ng-if="currentEmployee.flexibilities.length">
+					<tr ng-repeat="flexibility in currentEmployee.flexibilities">
+						<td class="countryVal">{{flexibility.country}}</td>
+						<td class="durationVal">{{flexibility.duration}}</td>
+					</tr>
+				</tbody>
+				<tbody  ng-if="!currentEmployee.flexibilities.length">
+					<tr>
+						<td class="text-center" colspan="2">No on-site preference data for {{currentEmployee.fullName}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-show="!searchResult.length" class="no-search-result-panel">No result for display.</div>
+</div>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsUserDao">
+
+
+<select id="getLoginUserName" resultType="String">
+	select fullname from App_User where Name = #{shortName}
+</select>
+<select id="getUserInfo" parameterType="String" resultMap="UserMap">
+
+	select * from App_User where fullname = #{fullnameString}
+	
+</select>
+
+<update id="updateUserInfo" parameterType="CapgUser">
+		update App_User
+		<set>
+			<if test="EcontactNumber != null">
+				EcontactNumber = #{EcontactNumber},
+			</if>
+			<if test="EcontactName != null">
+				EcontactName = #{EcontactName},
+			</if>
+			<if test="homeAddress != null">
+				homeAddress = #{homeAddress},
+			</if>
+			<if test="mobile != null">
+				mobile = #{mobile},
+			</if>
+			<if test="ChineseName != null">
+				Chiness_name = #{ChineseName},
+			</if>
+		</set>
+		where employee_id = #{employeeId}
+	</update>
+	
+	
+	<update id="updateFacePic" parameterType="CapgUser">
+	update App_User
+		set facePic = #{facePic}
+	where fullname = #{fullName}
+	</update>
+	
+	<resultMap id="UserMap" type="CapgUser">
+		<result property="id" 				column="id" />
+		<result property="userName" 		column="Name" />
+		<result property="fullName" 		column="fullname" />
+		<result property="firstName" 		column="firstName" />
+		<result property="lastName" 		column="lastName" />
+		<result property="email" 			column="email" />
+		<result property="employeeId" 		column="employee_id" />
+		<result property="ChineseName" 		column="Chiness_name" />
+		<result property="phone" 			column="phone" />
+		<result property="mobile" 			column="mobile" />
+		<result property="homeAddress" 		column="homeAddress" />
+		<result property="joinDate" 		column="joinedDate" />
+		<result property="EcontactName" 	column="EcontactName" />
+		<result property="EcontactNumber" 	column="EcontactNumber" />
+		<result property="manager" 			column="manager" />
+	</resultMap>
+</mapper>

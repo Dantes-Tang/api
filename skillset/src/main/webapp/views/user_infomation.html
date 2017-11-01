@@ -1,0 +1,77 @@
+<div class="totalInfo">
+
+	<div class="user_info">
+		<div class="face_pic_top" id="showChange">
+			<img class="avator-img" id="facePic" src="" width="120" height="120">
+			<input class="fileInput" type="file" name="facePicName"
+				id="facePicId" style="display: none;">
+			<a href="javascript:fn_browse();"><h2 id="facePich2">change</h2></a>
+		</div>
+		<div class="face_pic_button">
+			<form class="user_form">
+				<table class="table_info">
+					<tr>
+						<td>NAME :</td>
+						<td id="name"></td>
+						<td>CHINESE NAME :</td>
+						<td id="ChineseName" class="changable"></td>
+						<td class="options"><img class="optionButton" id="editButton"
+							src="images/edit.jpg" width="22px" height="22px"></td>
+					</tr>
+					<tr>
+						<td>FIRST NAME :</td>
+						<td id="firstName"></td>
+						<td>LAST NAME :</td>
+						<td id="lastName"></td>
+
+					</tr>
+					<tr>
+						<td>EMPLOYEE ID :</td>
+						<td id="employeeId"></td>
+						<td>JOIN DATE :</td>
+						<td id="joinDate"></td>
+					</tr>
+					<tr>
+						<td>MANAGER :</td>
+						<td id="manager"></td>
+
+					</tr>
+					<tr>
+						<td>PHONE :</td>
+						<td id="phone"></td>
+						<td>MOBILE :</td>
+						<td id="mobile" class="changable"></td>
+						<td class="options"><img class="optionButton" id="editButton"
+							src="images/edit.jpg" width="22px" height="22px"></td>
+					</tr>
+					<tr>
+						<td>HOME ADDRESS :</td>
+						<td id="homeAddress" class="changable" colspan="3"></td>
+						<td class="options"><img class="optionButton" id="editButton"
+							src="images/edit.jpg" width="22px" height="22px"></td>
+					</tr>
+					<tr>
+						<td>EMERGENCY CONTACT NAME :</td>
+						<td id="contaceName" class="changable" colspan="3"></td>
+						<td class="options"><img class="optionButton" id="editButton"
+							src="images/edit.jpg" width="22px" height="22px"></td>
+					</tr>
+					<tr>
+						<td>EMERGENCY CONTACT NUMBER :</td>
+						<td id="contactNumber" class="changable" colspan="3"></td>
+						<td class="options"><img class="optionButton" id="editButton"
+							src="images/edit.jpg" width="22px" height="22px"></td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+
+</div>
+<script language="javascript" type="text/javascript">
+	function fn_browse() {
+		document.getElementById("facePicId").click();
+	}
+</script>
+

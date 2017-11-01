@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsSiteDao">
+	<insert id="insertDrmsSite" parameterType="DrmsSite"
+		useGeneratedKeys="true" keyProperty="siteId">
+		insert into DRMS_Site
+		(site_Id,site_name)
+		values
+		(#{siteId},#{siteName})
+	</insert>
+	<update id="updateDrmsSite" parameterType="DrmsSite">
+		update DRMS_Site
+		<set>
+			<if test="siteName != null and siteName != '' ">
+				site_name = #{siteName}
+			</if>
+		</set>
+		where site_id = #{siteId}
+	</update>
+	<select id="searchDrmsSiteAll" resultMap="DrmsSiteMap">
+		select * from DRMS_Site
+	</select>
+	<select id="searchDrmsSiteById" parameterType="int" resultMap="DrmsSiteMap">
+		select * from DRMS_Site where site_id = #{siteId}
+	</select>
+	<select id="getDrmsSiteByname" parameterType="String" resultMap="DrmsSiteMap">
+		select
+		*
+		from DRMS_Site
+		where site_name = #{siteName}
+	</select>
+
+	<resultMap id="DrmsSiteMap" type="DrmsSite">
+		<result property="siteId" column="site_id" />
+		<result property="siteName" column="site_name" />
+		<result property="siteshortName" column="site_shortname" />
+	</resultMap>
+</mapper>

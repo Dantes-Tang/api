@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.SkillMatrixDao">
+	<!-- insert AddressHistory -->
+	<insert id="insertSkillMatrix" parameterType="SkillMatrix"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into SkillMatrix (username,
+		fullName,
+		skill,level,experience)
+		values (#{username}, #{fullName},
+		#{skill},#{level},#{experience})
+	</insert>
+
+
+	<update id="updateSkillMatrix" parameterType="SkillMatrix">
+		update SkillMatrix
+		<set>
+			<if test="fullName != null">
+				fullName = #{fullName},
+			</if>
+			<if test="skill != null">
+				skill = #{skill},
+			</if>
+			<if test="level != null">
+				level = #{level},
+			</if>
+			<if test="experience != null">
+				experience = #{experience},
+			</if>
+		</set>
+		where skill = #{skill}
+	</update>
+
+	<delete id="deleteSkillMatrix" parameterType="String">
+		DELETE FROM
+		SkillMatrix WHERE username= #{username}
+	</delete>
+
+	<select id="loadCategory" parameterType="Integer" resultMap="CategoryMap">
+		SELECT * FROM Category
+		WHERE parentId=#{parentId}
+		ORDER BY name
+	</select>
+	<select id="loadSkillMatrixByUsername" parameterType="String"
+		resultMap="skillMatrixMap">
+		select
+		*
+		from SkillMatrix where username = #{username}
+		ORDER BY
+		skill
+	</select>
+
+	<select id="searchSkillMatrixByName" parameterType="String"
+		resultMap="skillMatrixMap">
+		select
+		*
+		from SkillMatrix where fullname = #{username}
+	</select>
+	
+
+	<resultMap id="skillMatrixMap" type="SkillMatrix">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="fullName" column="fullName" />
+		<result property="skill" column="skill" />
+		<result property="level" column="level" />
+		<result property="experience" column="experience" />
+	</resultMap>
+
+
+	<resultMap id="CategoryMap" type="Category">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="description" column="description" />
+		<collection property="children" column="id" ofType="Category"
+			select="loadCategory" />
+		</resultMap>
+
+</mapper>

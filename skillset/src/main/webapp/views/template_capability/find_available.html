@@ -1,0 +1,51 @@
+<div class="resources-matched">
+	<header class="head-available">AVAILABALE RESOURCES</header>
+	<hr>
+	<form name="resourcesForm" ng-submit="$ctrl.successMatched()">
+
+		<div>
+			<uib-accordion close-others="oneAtTime">
+			<ul class="resource-style list-group">
+				<li uib-accordion-group class="list-group-item list-back-color"
+					ng-repeat="resource in $ctrl.matchedResources track by $index">
+					<div class="radio">
+						<input class="radio-location" type="radio" name="blankRadio"
+							id="blankRadio" ng-model="$ctrl.resource.resourceId"
+							ng-value="resource.resourceId">
+					</div> <uib-accordion-heading class="accordion-header">
+					<!-- 						<div class="radio radio-position"><input type="radio" name="blankRadio" id="blankRadio" ng-model="$ctrl.resource.resourceId" ng-value="resource.resourceId"></div> -->
+					<div class="resource-name">
+						<span class="resource-span">{{resource.resourceName}}</span>
+					</div>
+					<div class="collapse-down">
+						<i class="pull-right glyphicon collapse-i"
+							ng-class="{'glyphicon-chevron-down':$ctrl.status.isHeaderOpen,'glyphicon-chevron-right':!$ctrl.status.isHeaderOpen}"></i>
+					</div>
+					</uib-accordion-heading>
+					<div>
+						<table class="table table-hover">
+							<tr>
+								<th class="td-width">SKILL</th>
+								<th class="td-width">LEVEL</th>
+								<th class="td-width">EXPERIENCE</th>
+							</tr>
+							<tr ng-repeat="resourceItem in resource.skills">
+								<td>{{resourceItem.skill}}</td>
+								<td>{{resourceItem.level}}</td>
+								<td>{{resourceItem.experience}}</td>
+							</tr>
+						</table>
+					</div>
+				</li>
+			</ul>
+			</uib-accordion>
+		</div>
+		<hr>
+		<input type="submit" id="submit" class="btn btn-default" value="OK">
+		<input type="button" id="reset" class="btn btn-default" value="CANCEL"
+			ng-click="$ctrl.bool=false">
+	</form>
+</div>
+
+<!-- <pre>{{$ctrl.matchedResources | json}}</pre> -->
+<!-- <pre style="display: block">{{$ctrl.mathcedResources | json}}</pre> -->

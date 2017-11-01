@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.skillset.dao.AppDictionaryDao">
+	
+	
+		
+	<insert id="insertAppDictionary" parameterType="AppDictionary"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into App_Dictionary
+		(Data_Module,Data_Code,Data_Name,Data_Parent_Id,Priority,Description,Retired,Update_Date)
+		values 
+		(#{dataModule}, #{dataCode},#{dataName},#{dataParent_Id},#{priority},#{description},#{retired},#{updateDate})
+	</insert>
+	
+	
+ <!-- 
+	<select id="searchAppDictionaryBy" parameterType="String"
+		resultMap="AppDictionaryMap">
+		select
+		*
+		from App_Dictionary 
+		
+		<if test="arg != null">
+			where 
+		ID = #{arg} or Data_Name= #{arg} or Data_Module= #{arg} or Data_Code= #{arg} or Priority= #{arg}
+		</if> 		
+	</select>
+ -->
+	
+	
+	
+	<select id="searchAppDictionaryBySearcher" parameterType="AppDictionarySearchModel"
+	 resultMap="AppDictionaryMap">
+	  select
+	   * 
+	  from App_Dictionary
+	  <where>          
+         <if test="id != null and id !='' ">
+          AND ID = id
+         </if>
+        <if test="dataModule != null and dataModule!= '' ">     
+           AND Data_Module LIKE CONCAT(CONCAT('%', #{dataModule}),'%')   
+        </if>     
+        <if test="dataName != null and dataName!= '' " >     
+           AND Data_Name LIKE CONCAT(CONCAT('%', #{dataName}),'%')
+        </if>     
+        <if test="description !=null and description !='' ">     
+           AND Description LIKE CONCAT(CONCAT('%', #(descriptrion)),'%')
+        </if>
+      </where>        
+	 </select>
+
+	<update id="updateAppDictionary" parameterType="AppDictionary">
+		update App_Dictionary
+		<set>
+			<if test="dataName != null">
+				Data_Name = #{dataName},
+			</if>
+			<if test=" dataCode != null">
+				Data_Code = #{dataCode},
+			</if>
+			<if test="dataModule != null">
+				Data_Module = #{dataModule},
+			</if>
+			<if test="dataParent_Id != null">
+				Data_Parent_Id = #{dataParent_Id},
+			</if>
+			<if test="priority != null">
+				Priority = #{priority},
+			</if>
+			<if test="description != null">
+				Description = #{description},
+			</if>
+			<if test="retired != null">
+				Retired = #{retired},
+			</if>
+			<if test="updateDate != null">
+				Update_Date = #{updateDate},
+			</if>
+		</set>
+		
+		where ID = #{id}
+	</update>
+	
+	<delete id="deleteAppDictionary" parameterType="int">
+		DELETE FROM App_Dictionary WHERE ID= #{id}
+	</delete>
+
+	<resultMap id="AppDictionaryMap" type="AppDictionary">
+		<result property="id"       column="ID" />
+		<result property="dataModule"  column="Data_Module" />
+		<result property="dataCode" column="Data_Code"  />
+		<result property="dataName" column="Data_Name" />
+		<result property="dataParent_Id" column="Data_Parent_Id" />
+		<result property="priority" column="Priority" />
+		<result property="description" column="Description" />
+		<result property="retired" column="Retired" />
+		<result property="updateDate" column="Update_Date" />
+	</resultMap>
+
+</mapper>

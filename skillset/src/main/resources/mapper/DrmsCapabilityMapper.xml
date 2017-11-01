@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsCapabilityDao">
+
+	<select id="searchDrmsCapabilityAll" resultMap="DrmsCapabilityMap">
+		select * from DRMS_Capability
+	</select>
+
+	<select id="getDrmsCapabilityByname" parameterType="String"
+		resultMap="DrmsCapabilityMap">
+		select
+		*
+		from DRMS_Capability
+		where cap_name = #{capName}
+	</select>
+	<resultMap id="DrmsCapabilityMap" type="DrmsCapability">
+		<result property="capId" column="cap_id" />
+		<result property="capName" column="cap_name" />
+		<result property="capManager" column="cap_manager" />
+		<result property="capShortName" column="cap_shortname" />
+	</resultMap>
+
+</mapper>  

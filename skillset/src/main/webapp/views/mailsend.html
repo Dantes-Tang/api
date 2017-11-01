@@ -1,0 +1,87 @@
+<div class="modal-header">
+	<h5 class="modal-title" id="modal-title">Resource Demand Request Form</h5>
+	<div class="input-group input-group-lg msd-input">
+  		<span class="input-group-addon" id="sizing-addon3">To :</span>
+  		<input type="text" class="form-control" placeholder="Email-Address" aria-describedby="sizing-addon3">
+	</div>
+</div>
+
+<div class="modal-body" id="modal-body">
+	<cor-tab>
+		<div cor-pane title="Demand Information">
+    		<div class="input-group input-group-lg msd-input">
+  				<span class="input-group-addon" id="sizing-addon3">Opening Date</span>
+				<select ng-model="$ctrl.request.wrkLoc" ng-options="site.siteName for site in $ctrl.sites track by site.siteId" class="form-control">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Capability</span>
+				<select ng-options="cap.capName for cap in $ctrl.capabilitys track by cap.capId" class="form-control"></select>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Capability</span>
+				<select ng-model="$ctrl.request.capability" ng-options="cap.capName for cap in $ctrl.capabilitys track by cap.capId" class="form-control"></select>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Position Title</span>
+				<input ng-model="$ctrl.request.posTit" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Desired Designation</span>
+				<select ng-model="$ctrl.desDes" ng-options="dsg.dsgName for dsg in $ctrl.desgations track by dsg.dsgId" class="form-control"></select>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Hiring Reason</span>
+				<input ng-model="$ctrl.request.hirRes" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">HC Required</span>
+				<input ng-model="$ctrl.request.hcReq" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Billing Date</span>
+				<input type="text" ng-focus="$ctrl.calendarToggle2()" class="form-control anb-can-fix" uib-datepicker-popup="yyyy-MM-dd" ng-model="$ctrl.request.billDate" is-open="$ctrl.calOpen2" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormates" />
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon" id="sizing-addon3">Working Location</span>
+				<select ng-model="$ctrl.request.wrkLoc" ng-options="site.siteName for site in $ctrl.sites track by site.dsgId" class="form-control"></select>
+			</div>
+			<div class="input-group input-group-lg msd-input">
+				<span class="input-group-addon cell-title" id="sizing-addon3">Customer Interview Requried</span>
+				<select ng-model="$ctrl.request.cusIntrReq" class="form-control cell-input"></select>
+			</div>				
+		</div>
+		<div cor-pane title="Project Name & Duty">
+			<div class="des-title">
+				<span class="font-title">Project Introduction</span>
+				<textarea ng-model="$ctrl.request.prjIntr"></textarea>
+			</div>
+			<div class="des-title">
+				<span class="font-title">Duties Responsibilities</span>
+				<textarea ng-model="$ctrl.request.dutRes"></textarea>
+			</div>
+		</div>
+		<div cor-pane title="Requirement">
+			
+			<cor-tab>
+				<div cor-pane title="Technical">
+					<tech-component skill-out="$ctrl.techLoad(techs)"></tech-component>
+				</div>
+				<div cor-pane title="Language">
+					<lang-component lang-out="$ctrl.langsLoad(langs)"></lang-component>		
+				</div>
+			</cor-tab>
+			
+		</div>
+		<div cor-pane title="Other">
+			<div class="des-title">
+				<span class="font-title">Others</span>
+				<textarea ng-model="$ctrl.request.others"></textarea>
+			</div>
+		</div>				
+	</cor-tab>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Save & Submit</button>
+	<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+</div>

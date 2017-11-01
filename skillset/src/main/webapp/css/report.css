@@ -1,0 +1,28 @@
+.reportOutside{
+	margin:15px auto;
+}
+.reportOutside h4{
+	margin-left: 16px;
+	color: #B2B9BF;
+	text-transform: uppercase;
+	margin-bottom:10px;
+}
+.reportInside{
+	overflow:scroll;
+	height:600px;
+	margin-top:10px;
+	width:75vw;
+}
+.reportInside th{
+	color:#fff;
+	line-height:38px;
+	font-size:16px;
+	text-align:center;
+	background:#a8b8c2;
+}
+.reportOutside td{
+	text-align:center;
+}
+.reportOutside table{
+	 border:1px solid #ddd; 
+}

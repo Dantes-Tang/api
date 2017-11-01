@@ -1,0 +1,58 @@
+<div id="slidelst" class="slide" slide-list>
+	<div class="sld-inpt-box">
+		<div class="header">
+			<span>demand add</span>
+		</div>
+		<div class="sld-main">
+			<div class="hed-tit-box">
+				<span>Demand capability</span>
+				<capa-component sl-model="dmd.drmsCapability" class="slt-f-comp"></capa-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>project name</span>
+				<validate-component sl-model="dmd.dmdProjName" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>site</span>
+				<site-component sl-model="dmd.drmsSite" class="slt-f-comp"></site-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>resource type</span>
+				<restype-component sl-model="dmd.dmdResType" class="slt-f-comp"></restype-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Project Position</span>
+				<validate-component sl-model="dmd.dmdPosition" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Designation</span>
+				<des-component sl-model="dmd.drmsDesigation" class="slt-f-comp"></des-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Alternative Desigations</span>
+				<validate-component sl-model="dmd.dmdAlterdsg" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Allocation Ratio</span>
+				<validate-component sl-model="dmd.dmdAllocRatio" class="slt-f-comp"></validate-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Allocation Type</span>
+				<alloc-component sl-model="dmd.drmsAllocationType" class="slt-f-comp"></alloc-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>Start Date</span>
+				<date-component sl-model="dmd.startDate"></date-component>
+			</div>
+			<div class="hed-tit-box">
+				<span>End Date</span>
+				<date-component sl-model="dmd.endDate"></date-component>
+			</div>		
+			<div class="hed-tit-box">
+				<button ng-click="dmdAddSave()" class="sld-btn">Save</button>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsDesigationDao">
+
+	<insert id="insertDesigation" parameterType="DrmsDesigation"
+		useGeneratedKeys="true" keyProperty="dsgId">
+		insert into DRMS_Desigation dsg_name values	#{dsgName}
+	</insert>
+	
+	<update id="updateDesigation" parameterType="DrmsDesigation">
+		update DRMS_Desigation set dsg_name= #{dsgName} where dsg_id=#{dsgId}
+	</update>
+	
+	<select id="searchAllDrmsDesigation"  resultMap="DrmsDesigationMap">
+		select * from DRMS_Desigation
+	</select>
+	
+	<select id="searchDrmsDesigationById"  parameterType="int" resultMap="DrmsDesigationMap">
+		select * from DRMS_Desigation where dsg_id=#{dsgId}
+	</select>
+	
+
+	<resultMap id="DrmsDesigationMap" type="DrmsDesigation">
+		<result property="dsgId" column="dsg_id" />
+		<result property="dsgName" column="dsg_name" />
+	</resultMap>
+</mapper>

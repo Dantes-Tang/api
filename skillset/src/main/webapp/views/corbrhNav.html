@@ -1,0 +1,9 @@
+<div class="brh-nav">
+	<ul class="list-group brh-list">
+	<!--   	<li class="list-group-item brh-item bractive">Cras justo odio</li> -->
+	  	<li ng-repeat="item in items" ui-sref-active="bractive" ng-click="select(item)" ui-sref="{{item.uisref}}" class="list-group-item brh-item">{{item.tag}}</li>
+	</ul>
+	<div ng-show="false">
+		<ng-transclude></ng-transclude>
+	</div>
+</div>

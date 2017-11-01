@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.AppRoleDao">
+	
+	<insert id="insertAppRole" parameterType="AppRole"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into App_Role
+		(Role_Name,Description)
+		values 
+		(#{roleName},#{description})
+	</insert>
+	
+	<select id="searchAppRoleBySearcher" parameterType="AppDictionarySearchModel"
+	 resultMap="AppRoleMap">
+	  select
+	   * 
+	  from App_Role
+	  <where>          
+         <if test="id != null and id !='' ">
+            ID = #{id}
+         </if>
+        <if test="roleName != null and roleName != '' ">     
+         And   Role_Name LIKE CONCAT(CONCAT('%', #{roleName}),'%')   
+         </if>
+        <if test="description != null and description !='' ">     
+         And   Description LIKE CONCAT(CONCAT('%', #(descriptrion)),'%')
+        </if>
+      </where>        
+	</select>
+
+	<update id="updateAppRole" parameterType="AppRole">
+		update App_Role
+		<set>
+			<if test="roleName != null">
+				Role_Name = #{roleName},
+			</if>
+			<if test="description != null">
+				Description = #{description},
+			</if>
+		</set>
+		
+		where ID = #{id}
+	</update>
+	
+	<delete id="deleteAppRole" parameterType="int">
+		DELETE FROM App_Role WHERE ID= #{id}
+	</delete>
+	
+	<select id="selectAppRole" resultMap="AppRoleMap">
+	    SELECT ID,Role_Name FROM App_Role
+	</select>
+
+	<resultMap id="AppRoleMap" type="AppRole">
+		<result property="id"       column="ID" />
+		<result property="roleName" column="Role_Name" />
+		<result property="description" column="Description" />
+	</resultMap>
+
+</mapper>

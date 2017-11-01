@@ -1,0 +1,79 @@
+.onsite-box {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+.onsite-box .nav {
+  width: 15%;
+  max-width: 200px;
+  height: 100%;
+  background-color: #DBDBDB;
+}
+.onsite-box .table-box {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.onsite-box .table-box .center-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75%;
+  max-width: 800px;
+}
+.site-lst {
+  margin-top: 20vh;
+  padding-left: 0px;
+  list-style: none;
+}
+.site-lst li {
+  font-weight: bold;
+  padding: 5px 20px 5px 40px;
+  cursor: pointer;
+}
+.site-lst li:hover {
+  text-shadow: 4px 1px 2px #AAA;
+}
+.site-lst .selected {
+  border-right: 3px solid #333;
+  background-color: #BBB;
+}
+.onsite-tb {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: row;
+}
+.onsite-tb table {
+  width: 100%;
+}
+.onsite-tb table thead tr {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #A8B8C2;
+}
+.onsite-tb table thead tr th {
+  padding-left: 5px;
+}
+.onsite-tb table tbody tr td {
+  border-bottom: 1px solid #DDD;
+  background-color: #FFF;
+  padding: 5px;
+}
+.onsite-tb table tbody tr td input {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+}
+.os-btn {
+  width: 250px;
+}
+.fix-btn-box {
+  justify-content: center;
+  margin-top: 1vh;
+}
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns ="http://www.springframework.org/schema/security"
+	xmlns:oauth2="http://www.springframework.org/schema/security/oauth2"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                        http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+
+	<!-- <http pattern="/login.jsp" security="none" />
+	<http pattern="/css/**" security="none" />
+	<http pattern="/js/**" security="none" />
+	<http pattern="/images/**" security="none" />
+	<http pattern="/fonts/**" security="none" />
+	<http pattern="/api/**" security="none" /> -->
+
+	
+	<http auto-config="true">
+<!-- 		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" /> -->
+
+		<form-login login-page="/login.jsp" default-target-url="/index_3.html"
+			authentication-failure-url="/login.jsp" />
+		<session-management invalid-session-url="/login.jsp"
+			session-authentication-error-url="/login.jsp"
+			session-fixation-protection="newSession">
+			<concurrency-control max-sessions="1"
+				error-if-maximum-exceeded="true" />
+		</session-management>
+		<logout invalidate-session="true" logout-success-url="/login.jsp"
+			logout-url="/j_spring_security_logout" />
+			     <access-denied-handler ref="accessDeniedHandler" />
+		<custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+	</http>
+	<beans:bean id="accessDeniedHandler"
+		class=" com.capgemini.drms.web.ldap.MyAccessDeniedHandler
+">
+		<beans:property name="accessDeniedUrl" value="/accessDenied.html" />
+	</beans:bean>
+
+	<beans:bean id="myFilter"
+		class="com.capgemini.drms.web.ldap.MyFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="myAccessDecisionManager"/>
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+	</beans:bean>
+	<authentication-manager  alias="authenticationManager">
+		<authentication-provider>
+			<user-service>
+				<user name="admin" password="123456" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+		<authentication-provider ref="adAuthenticationProvider" />
+	</authentication-manager>
+
+
+
+	<beans:bean id="myAccessDecisionManager"
+		class="com.capgemini.drms.web.ldap.MyAccessDecisionManager" />
+
+	<!--资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色访问 -->
+	<beans:bean id="securityMetadataSource"
+		class="com.capgemini.drms.web.ldap.MyInvocationSecurityMetadataSource" />
+		
+		
+
+</beans:beans>

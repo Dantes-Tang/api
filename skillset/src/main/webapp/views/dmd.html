@@ -1,0 +1,26 @@
+
+<ul class="list-group">
+  	<li ng-repeat="oppo in oppos track by $index" class="list-group-item">
+  		<blockquote>
+  			<h4>{{oppo.opp_b_id}}</h4>
+		</blockquote>
+    	<table class="table">
+    		<tr>
+    			<th>Opportunity Name:</th>
+    			<td>{{oppo.opp_name}}</td>
+    			<th>Account:</th>
+    			<td>{{oppo.opp_account}}</td>
+    		</tr>
+    		<tr>
+    			<th>Probability:</th>
+    			<td>{{oppo.opp_probability}}%</td>
+    			<th>Status:</th>
+    			<td>{{oppo.opp_status}}</td>
+    		</tr> 
+    	</table>
+    	<hr>
+    	<p class="text-right">
+    		<a class="btn btn-default" role="button">Demonds Management</a>
+    	</p>
+	</li> 					
+</ul>

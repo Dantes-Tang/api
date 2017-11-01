@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.WeeklyReportDao">
+	<select id="getWeeklyReport" resultMap="WeeklyReportMap">
+		select 
+			r.capability, 
+			r.kin_id, 
+			r.`name`, 
+			DATE_FORMAT(r.date_of_join,"%d-%b-%Y") as "Global_Join_Date", 
+			r.designation,
+			DATE_FORMAT(IFNULL((select date_add(max(dmd_end_date), INTERVAL 1 day)  from DRMS_Demand where dmd_res_id = d.dmd_res_id and dmd_atp_id = 1 and dmd_status_id =6) , r.date_of_join),"%d-%b-%Y") as "Bench_Join_Date",
+			d.dmd_alloc_ratio,
+			r.primary_skill,
+			d.dmd_remarks,
+			round(DATEDIFF(now(),IFNULL((select date_add(max(dmd_end_date), INTERVAL 1 day)  from DRMS_Demand where dmd_res_id = d.dmd_res_id and dmd_atp_id = 1 and dmd_status_id =6) , r.date_of_join))/7) as "Aging"
+		from 
+			DRMS_Demand d, 
+			DRMS_Resource r, 
+			DRMS_Opportunity o 
+		where 
+			d.dmd_res_id= r.resource_id 
+			and d.dmd_opp_id=o.opp_id
+			and d.dmd_atp_id in (2,3,4) 
+			and o.opp_status_id = 1
+			and d.dmd_status_id in (2,5)
+			and d.dmd_res_id != 1
+		order by r.capability, r.designation
+	
+	</select>
+	
+	<resultMap id="WeeklyReportMap" type="WeeklyReport">
+		<result property="capability" column="capability" />
+		<result property="kinId" column="kin_id" />
+		<result property="name" column="name" />
+		<result property="GlobalJoinDate" column="Global_Join_Date" />
+		<result property="designation" column="designation" />
+		<result property="BenchJoinDate" column="Bench_Join_Date" />
+		<result property="dmdAllocRatio" column="dmd_alloc_ratio" />
+		<result property="primarySkill" column="primary_skill" />
+		<result property="dmdRemarks" column="dmd_remarks" />
+		<result property="aging" column="Aging" />
+	</resultMap>
+
+
+</mapper>

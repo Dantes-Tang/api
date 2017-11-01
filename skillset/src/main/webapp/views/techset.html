@@ -1,0 +1,43 @@
+<div class="panel panel-default req-tbe">
+	<div class="panel-body">
+		<table class="table req-tbe">
+			<thead>
+				<tr>
+					<th>Technical Skill</th>
+					<th>Minimun Experience (Years)</th>
+					<th>Ideal Experience (Years)</th>
+					<th>Ops</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tech in $ctrl.techs track by $index">
+					<td>{{tech.techSkil}}</td>
+					<td>{{tech.miniYear}}</td>
+					<td>{{tech.maxYear}}</td>
+					<td><span ng-click="$ctrl.doDel($index)" class="glyphicon glyphicon-remove"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<form ng-submit="$ctrl.add()">					
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Technical Skill</span>
+		<input type="text" class="form-control ipt-focus" ng-model="$ctrl.tech.techSkil" placeholder="Technical Skill" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Minimun Experience</span>
+		<input type="number" class="form-control ipt-focus" ng-model="$ctrl.tech.miniYear" placeholder="miniyear" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Ideal Experience</span>
+		<input type="number" class="form-control ipt-focus" ng-model="$ctrl.tech.maxYear" placeholder="idealyear" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input">
+		<span class="input-group-addon" id="sizing-addon3">Comments</span>
+		<input type="text" class="form-control ipt-focus" ng-model="$ctrl.tech.comment" placeholder="comment" aria-describedby="sizing-addon3">
+	</div>
+	<div class="input-group input-group-lg msd-input text-right">
+		<input class="sbmt-add" type="submit" value="add">
+	</div>
+</form>

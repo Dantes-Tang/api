@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.drms.dao.DrmsSkillFlexibilityDao">
+	<select id="findFullName" resultType="java.lang.String">
+		select distinct SkillMatrix.fullName
+		from SkillMatrix join Flexibility
+		on SkillMatrix.username=Flexibility.username;
+	</select>
+
+	<select id="findSkillMatrix" parameterType="java.lang.String"
+		resultMap="SkillMatrixMap">
+		select skill,level,experience
+		from SkillMatrix
+		where SkillMatrix.fullName=#{fullName};
+	</select>
+
+	<resultMap type="SkillMatrix" id="SkillMatrixMap">
+		<result property="experience" column="experience" />
+		<result property="level" column="level" />
+		<result property="skill" column="skill" />
+	</resultMap>
+	<select id="findFlexibility" parameterType="java.lang.String"
+		resultMap="FlexibilityMap">
+		select country,duration
+		from Flexibility
+		where Flexibility.fullName=#{fullName};
+	</select>
+	<resultMap type="Flexibility" id="FlexibilityMap">
+		<result property="country" column="country" />
+		<result property="duration" column="duration" />
+	</resultMap>
+</mapper>

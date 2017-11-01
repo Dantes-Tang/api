@@ -1,0 +1,22 @@
+{
+	"id": 0,
+	"domain": "CORP",
+	"userName": "yuecai",
+	"firstName": "yue",
+	"lastName": "cai",
+	"email": "yue.cai@capgemini.com",
+	"joinDate": 1416758400000,
+	"employeeId": "60952_FS",
+	"enabled": false,
+	"fullName": "yue cai",
+	"username": "yuecai",
+	"password": null,
+	"accountNonExpired": false,
+	"credentialsNonExpired": false,
+	"accountNonLocked": false,
+	"authorities": [
+		{
+			"authority": "ROLE_USER"
+		}
+	]
+}

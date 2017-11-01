@@ -1,0 +1,28 @@
+<div ng-controller="AccordionDemoCtrl" id="demand"  >
+    <h4 class="DEMANDS">RESOURCE</h4>
+	<input class="searchButton" ng-model="informationModel">
+	<uib-accordion close-others="oneAtATime">
+	<ul class="informatinBox">
+		<li uib-accordion-group class="panel-default"
+			heading="{{group.fullName | uppercase}}" ng-repeat="group in groups | filter:informationModel"
+			class="accordionLi">
+			<div class=" col-lg-12  container well" >
+				<table class="table  table-condensed table-bordered table-hover" > 
+					<tr ng-repeat="skillObj in group.skillMatrix">
+						<td><span> {{skillObj.skill}} </span></td>
+						<td><span> {{skillObj.level}} </span></td>
+						<td><span> {{skillObj.experience}} </span></td>
+					</tr>
+				</table>
+				<table class="table  table-condensed table-bordered table-hover" > 
+					<tr ng-repeat="countryObj in group.flexibility">
+						<td><span> {{countryObj.country}} </span></td>
+						<td><span> {{countryObj.duration}} </span></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+	</ul>
+	</uib-accordion>
+</div>
+ 

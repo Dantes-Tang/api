@@ -1,0 +1,156 @@
+<html ng-app="ui.bootstrap.demo">
+    <head>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="http://www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+	<script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+        </head>
+        <body>
+
+            <div ng-controller="ModalDemoCtrl" class=" col-lg-12  container well" style="padding: 0px;" >
+                <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                        <input placeholder="Name" />
+                        <input placeholder="Skill"/>
+                        <button>search</button>
+                    </div>
+                    <div class="modal-body">
+
+                <table class="table  table-condensed table-bordered table-hover" id="table-add">
+                	<tr>
+						<th>Project-Name</th>
+						<th>Resource-Type</th>
+						<th>Site-Account</th>
+						<th>Desigation</th>
+						<th>Position</th>
+					</tr>
+                	<tr ng-repeat="group in groups">
+                		<td>{{group.title}}</td>
+                		<td>{{group.content}}</td>
+                		<td>{{group.title1}}</td>
+                		<td>{{group.title2}}</td>
+                		<td>{{group.title3}}</td>
+                	</tr>
+                </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="ok()">Submit</button>
+                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                    </div>
+                </script>
+
+                <!--<button class="btn btn-default" ng-click="open()">Open me!</button>
+                <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+                <button class="btn btn-default" ng-click="open('sm')">Small modal</button>-->
+                <!--table  beginning-->
+                <div class=" col-lg-12  container well">
+	                <table class="table  table-condensed table-bordered table-hover" id="table-add">
+		                <thead>
+							<tr class="">
+								<td colspan="13">DevOps Engineers HSBC20160001</td>
+							</tr>
+						</thead>
+	                	<tr>
+							<th>Project-Name</th>
+							<th>Resource-Type</th>
+							<th>Site-Account</th>
+							<th>Desigation</th>
+							<th>Position</th>
+							<th>Capbility-Name</th>
+							<th>Allocation-Type</th>
+							<th>Allocation-Ratio</th>
+							<th>Start-Time</th>
+							<th>End-Time</th>
+							<th>Assignment-Capbilbity</th>
+							<th>Alternative-Desigation</th>
+							<th>matching</th>
+						</tr>
+	                	<tr ng-repeat="group in groups">
+	                		<td>{{group.title}}</td>
+	                		<td>{{group.content}}</td>
+	                		<td>{{group.title1}}</td>
+	                		<td>{{group.title2}}</td>
+	                		<td>{{group.title3}}</td>
+	                		<td>{{group.title4}}</td>
+	                		<td>{{group.title5}}</td>
+	                		<td>{{group.title6}}</td>
+	                		<td>{{group.title7}}</td>
+	                		<td>{{group.title8}}</td>
+	                		<td>{{group.title9}}</td>
+	                		<td>{{group.title10}}</td>
+	                		<td>
+	                			<button ng-click="open('lg')">matching</button>
+	                		</td>
+	                	</tr>
+	                </table>
+                </div>
+                <!--table ending-->
+                <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
+            </div>
+        </body>
+<script>
+angular.module('ui.bootstrap.demo',['ui.bootstrap'])
+.controller('ModalDemoCtrl', function($scope, $modal, $log) {
+
+
+	$scope.groups = [
+    {
+      title: ' 1',
+      content: ' - 1',
+      title1:'1',
+      title2:'1',
+      title3:'1',
+      title4:'1',
+      title5:'1',
+      title6:'1',
+      title7:'1',
+      title8:'1',
+      title9:'1',
+      title10:'1'
+    },
+    {
+      title: ' - 2',
+      content: ' - 2'
+    }
+    ,{
+        title: ' - 3',
+        content: ' - 3'
+    }
+  ];
+  
+  $scope.open = function(size) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        groups: function() {
+          return $scope.groups;
+        }
+      }
+    });
+
+    modalInstance.result.then(function(selectedgroup) {
+      $scope.selected = selectedgroup;
+    }, function() {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+})
+.controller('ModalInstanceCtrl', function($scope, $modalInstance, groups) {
+
+  $scope.groups = groups;
+  $scope.selected = {
+    group: $scope.groups[0]
+  };
+
+  $scope.ok = function() {
+    $modalInstance.close($scope.selected.group);
+  };
+
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
+});
+</script>       
+</html>

@@ -1,0 +1,39 @@
+<ui-view></ui-view>
+<div class="op-tb-box">
+	<div class="op-tb">
+		<div class="op-tb-header">
+			<h4>Opportunity</h4>
+		</div>
+		<div class="op-tb-ops">
+			<div ui-sref="account.opportunity.add" class="add-ops"><b>+ add</b></div>
+			<input ng-model="keyword" class="tb-search" type="text">
+		</div>
+		<div class="op-tb-man op-tb-man-fix">
+			<table class="table op-tb-fix">
+				<thead>
+					<tr>
+						<th>Opportunity id</th>
+						<th>Name</th>
+						<th>Account</th>
+						<th>Status</th>
+						<th>Probability</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="oppo in oppos track by $index">
+						<td>{{oppo.oppShowId}}</td>
+						<td>{{oppo.oppName}}</td>
+						<td>{{oppo.drmsAccount.accountName}}</td>
+						<td>{{oppo.drmsStatus.statusName}}</td>
+						<td>{{oppo.oppProbability}}%</td>
+						<td><span ui-sref="account.opportunity.edit({oppId: oppo.oppId})" class="tb-edit"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="paging-box">
+			<ul uib-pagination total-items="totalItems" items-per-page="itemsPer" ng-model="currPage" max-size="175" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+		</div>
+	</div>
+</div>
